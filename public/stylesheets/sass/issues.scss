@@ -1,0 +1,12 @@
+.issues {margin: 0; padding: 0; list-style: none;}
+.issues li {margin: 0; padding: 1px 0;}
+.issues .status {display: inline-block; padding:1px 3px; background: #eee;}
+.issues small {color: #aaa;}
+
+.issues li.opened {}
+.issues li.closed {}
+.issues li.reopened {}
+
+.issues a.opened {background: #060; color: #fff;}
+.issues a.closed {}
+.issues a.reopened {background: #090; color: #fff;}

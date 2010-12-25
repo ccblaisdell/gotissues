@@ -8,6 +8,7 @@ gem 'rails', '3.0.3'
 gem 'mysql2'
 gem 'devise'
 gem 'jquery-rails', '>= 0.2.6'
+gem 'haml'
 
 # Use unicorn as the web server
 # gem 'unicorn'

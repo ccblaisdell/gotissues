@@ -82,4 +82,26 @@ class IssuesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def cycle_status
+    @issue = Issue.find(params[:id])
+    
+    case @issue.status
+    when "closed"
+      @issue.status = "reopened"
+    else
+      @issue.status = "closed"
+    end
+    
+    respond_to do |format|
+      if @issue.save
+        format.html { redirect_to(@issue, :notice => 'Issue was successfully updated.') }
+        format.xml  { head :ok }
+        format.js
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @issue.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 end

@@ -1,0 +1,7 @@
+$('#issue_<%= @issue.id %>')
+  .removeClass()
+  .addClass('<%= @issue.status %>')
+  .find('.status')
+    .html('<%= @issue.status %>')
+    .removeClass()
+    .addClass('status <%= @issue.status %>');
