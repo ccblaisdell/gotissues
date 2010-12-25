@@ -3,6 +3,7 @@ class IssuesController < ApplicationController
   # GET /issues.xml
   def index
     @issues = Issue.all
+    @issue = Issue.new(:user => current_user)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -46,6 +47,7 @@ class IssuesController < ApplicationController
       if @issue.save
         format.html { redirect_to(@issue, :notice => 'Issue was successfully created.') }
         format.xml  { render :xml => @issue, :status => :created, :location => @issue }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @issue.errors, :status => :unprocessable_entity }

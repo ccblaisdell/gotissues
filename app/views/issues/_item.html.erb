@@ -1,0 +1,7 @@
+<li>
+  <strong class="status <%= issue.status %>"><%= issue.status %></strong>
+  <%= link_to issue.name, issue %>
+  <small><%= issue.user.email %></small>
+  <small><%= time_ago_in_words issue.created_at %></small>
+  <%= link_to "x", issue, :method => :delete %>
+</li>

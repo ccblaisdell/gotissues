@@ -1,28 +1,22 @@
-<h1>Listing issues</h1>
+<h1>Got Issues</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul class="issues" id="issues">
+  <% @issues.each do |issue| %>
+    <%= render :partial => "item", :locals => {:issue => issue} %>
+  <% end %>
+</ul>
 
-<% @issues.each do |issue| %>
-  <tr>
-    <td><%= issue.name %></td>
-    <td><%= issue.description %></td>
-    <td><%= issue.status %></td>
-    <td><%= issue.user %></td>
-    <td><%= link_to 'Show', issue %></td>
-    <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
-    <td><%= link_to 'Destroy', issue, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<%= form_for(@issue, :remote => true, :format => :js) do |f| %>
+  <%= f.hidden_field :user_id %>
+  <h2>new issue</h2>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.submit %>
 <% end %>
-</table>
+
 
 <br />
 
