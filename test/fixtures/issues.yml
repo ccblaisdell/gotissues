@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: 
+  description: 
+  status: 
+  user: 1
+
+two:
+  name: 
+  description: 
+  status: 
+  user: 1

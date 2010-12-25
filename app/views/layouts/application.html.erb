@@ -12,7 +12,10 @@
   <p class="alert"><%= alert %></p>
   
   <% if user_signed_in? %>
-    <p><%= link_to "Sign out", destroy_user_session_url %></p>
+    <p>
+      <%= link_to "Issues", issues_path %>
+      <%= link_to "Sign out", destroy_user_session_url %>
+    </p>
   <% else %>
     <p>
       <%= link_to "Sign in", new_user_session_url %>
