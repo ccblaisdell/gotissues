@@ -1,4 +1,6 @@
 Gotissues::Application.routes.draw do
+  resources :projects
+
   resources :issues
 
   devise_for :users
