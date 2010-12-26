@@ -85,13 +85,7 @@ class IssuesController < ApplicationController
   
   def cycle_status
     @issue = Issue.find(params[:id])
-    
-    case @issue.status
-    when "closed"
-      @issue.status = "reopened"
-    else
-      @issue.status = "closed"
-    end
+    @issue.status = @issue.cycle_status
     
     respond_to do |format|
       if @issue.save
@@ -101,6 +95,7 @@ class IssuesController < ApplicationController
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @issue.errors, :status => :unprocessable_entity }
+        format.js {render :text => "failed: #{@issue.status}"}
       end
     end
   end
