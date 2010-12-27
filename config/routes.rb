@@ -19,7 +19,7 @@ Gotissues::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
-  match 'issues/:id/cycle_status' => 'issues#cycle_status', :as => "cycle_status"
+  match '/projects/:project_id/issues/:id/cycle_status' => 'issues#cycle_status', :as => "cycle_status"
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

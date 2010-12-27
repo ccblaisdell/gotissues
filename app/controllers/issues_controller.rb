@@ -80,7 +80,7 @@ class IssuesController < ApplicationController
     @issue.destroy
 
     respond_to do |format|
-      format.html { redirect_to(issues_url) }
+      format.html { redirect_to(project_issues_url(@project)) }
       format.xml  { head :ok }
     end
   end
@@ -104,6 +104,6 @@ class IssuesController < ApplicationController
   
   private
   def find_project
-    @project = Project.find params['project_id']
+    @project = Project.find_by_slug params['project_id']
   end
 end

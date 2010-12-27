@@ -6,7 +6,7 @@
   <% end %>
 </ul>
 
-<%= form_for(new_project_issue_path(@project, @issue), :remote => true, :format => :js) do |f| %>
+<%= form_for([@project, @issue], :remote => true, :format => :js) do |f| %>
   <%= f.hidden_field :user_id %>
   <h2>new issue</h2>
   
@@ -14,10 +14,10 @@
   <%= f.text_field :name %>
   <%= f.label :description %>
   <%= f.text_field :description %>
-  <%= f.submit %>
+  <%= f.submit "Create" %>
 <% end %>
 
 
 <br />
 
-<%= link_to 'New Issue', new_project_issue_path(@project, @issue) %>
+<%= link_to 'New Issue', new_project_issue_path(@project) %>

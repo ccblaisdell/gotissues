@@ -9,6 +9,7 @@ gem 'mysql2'
 gem 'devise'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'haml'
+gem 'stringex'
 
 # Use unicorn as the web server
 # gem 'unicorn'

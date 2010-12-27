@@ -1,5 +1,5 @@
 <li id="issue_<%= issue.id %>">
-  <%= link_to issue.status, cycle_status_path(issue, :format => :js), :class => "status #{issue.status}", :remote => true %>
+  <%= link_to issue.status, cycle_status_path(@project, issue, :format => :js), :class => "status #{issue.status}", :remote => true %>
   <%= link_to issue.name, project_issue_path(@project, issue) %>
   <small><%= issue.user.email %></small>
   <small><%= time_ago_in_words issue.created_at %></small>
