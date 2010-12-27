@@ -1,6 +1,8 @@
 class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.xml
+  before_filter :find_project
+  
   def index
     @issues = Issue.all
     @issue = Issue.new(:user => current_user)
@@ -98,5 +100,10 @@ class IssuesController < ApplicationController
         format.js {render :text => "failed: #{@issue.status}"}
       end
     end
+  end
+  
+  private
+  def find_project
+    @project = Project.find params['project_id']
   end
 end

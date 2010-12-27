@@ -1,7 +1,9 @@
 Gotissues::Application.routes.draw do
-  resources :projects
+  resources :projects do
+    resources :issues
+  end
 
-  resources :issues
+  #resources :issues
 
   devise_for :users
 
