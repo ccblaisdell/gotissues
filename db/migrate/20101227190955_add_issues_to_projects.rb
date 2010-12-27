@@ -1,7 +1,5 @@
 class AddIssuesToProjects < ActiveRecord::Migration
   def self.up
-    # add_column :issues, :name, :string, :null => false
-    # User.update_all ["name = ?", "Name"]
     change_table :issues do |t|
       t.references :project
     end

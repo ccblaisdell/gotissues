@@ -2,8 +2,11 @@ class Issue < ActiveRecord::Base
   validates :name,  :presence => true
   validates :status,  :presence => true
   
+  attr_accessible :assignee
+  
   belongs_to :user
   belongs_to :project
+  belongs_to :assignee, :class_name => "User"
   
   STATES = ['open', 'resolved', 'closed', 'reopened']
   
@@ -18,9 +21,5 @@ class Issue < ActiveRecord::Base
     next_status = status_index + 1 >= STATES.length ? 1 : status_index + 1
     
     status = STATES[next_status]
-    
-    # next_status = Issue.states.index(@issue.status) + 1 if Issue.states.index(@issue.status)
-    # next_status = 1 if next_status > Issue.states.length
-    # @issue.status = Issue.states[next_status]
   end
 end

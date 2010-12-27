@@ -44,6 +44,7 @@ class IssuesController < ApplicationController
   # POST /issues.xml
   def create
     @issue = Issue.new(params[:issue])
+    @issue.project = @project
 
     respond_to do |format|
       if @issue.save

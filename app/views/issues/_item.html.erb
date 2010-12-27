@@ -3,5 +3,6 @@
   <%= link_to issue.name, project_issue_path(@project, issue) %>
   <small><%= issue.user.email %></small>
   <small><%= time_ago_in_words issue.created_at %></small>
+  <%= assigned_to(issue) %>
   <%= link_to "x", project_issue_path(@project, issue), :method => :delete %>
 </li>
