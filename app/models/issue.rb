@@ -3,6 +3,7 @@ class Issue < ActiveRecord::Base
   validates :status,  :presence => true
   
   belongs_to :user
+  belongs_to :project
   
   STATES = ['open', 'resolved', 'closed', 'reopened']
   
