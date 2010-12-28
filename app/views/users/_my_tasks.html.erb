@@ -1,6 +1,6 @@
 <ul>
   <% for @project in @projects %>
-    <li>
+    <li class="project" data-id="<%= @project.id %>">
       <h3><%= @project.name %></h3>
       <ul class="issues">
         <% if @assignments %>

@@ -6,7 +6,7 @@
   <%= link_to "Status", project_issues_path(@project, :order_by => "status") %>
 </p>
 
-<ul class="issues" id="issues">
+<ul class="issues project" id="issues" data-id="<%= @project.id %>">
   <% @issues.each do |issue| %>
     <%= render :partial => "item", :locals => {:issue => issue} %>
   <% end %>

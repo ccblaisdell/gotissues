@@ -109,6 +109,20 @@ class IssuesController < ApplicationController
     end
   end
   
+  def assign_to
+    @issue = Issue.find(params[:id])
+    @user = User.find(params[:user_id])
+    @issue.assignee = @user
+    
+    respond_to do |format|
+      if @issue.save
+        format.js {render :text => "saved!"}
+      else
+        format.js {render :text => "failed"}
+      end
+    end
+  end
+  
   private
   def find_project
     @project = Project.find_by_slug params['project_id']
