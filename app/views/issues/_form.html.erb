@@ -1,4 +1,4 @@
-<%= form_for([@project, @issue]) do |f| %>
+<%= form_for([@project, @issue], :html => {:multipart => true}) do |f| %>
   <% if @issue.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@issue.errors.count, "error") %> prohibited this issue from being saved:</h2>
@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :rows => 10 %>
   </div>
   
   <% unless @issue.new_record? %>
@@ -31,6 +31,13 @@
   <% end %>
   
   <div class="actions">
+    <label for="issue_image">Image</label>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+    
+    <label for="issue_assignee_id">Assigned to</label>
+    <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }), :include_blank => true %>
+    
     <%= f.submit %>
   </div>
 <% end %>

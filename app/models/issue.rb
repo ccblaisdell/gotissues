@@ -7,6 +7,8 @@ class Issue < ActiveRecord::Base
   belongs_to :assignee, :class_name => "User"
   has_many :comments
   
+  mount_uploader :image, ImageUploader
+  
   STATES = ['open', 'resolved', 'closed', 'reopened']
   
   scope :by_project, lambda { |c| c.nil? ? criteria : where(:project_id => c) }

@@ -32,3 +32,5 @@ tmp/**/*
 /vendor/bundle
 capybara-*.html
 rerun.txt
+/public/uploads
+/public/uploads/*

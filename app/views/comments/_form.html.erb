@@ -1,4 +1,4 @@
-<%= form_for(@comment) do |f| %>
+<%= form_for(@comment, :html => {:multipart => true}) do |f| %>
   <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -12,11 +12,17 @@
   <% end %>
   
   <%= f.hidden_field :issue_id, :value => @issue.id %>
+  
   <div class="field">
     <%= f.label :body %><br />
-    <%= f.text_area :body %>
+    <%= f.text_area :body, :rows => 5 %>
   </div>
+  
   <div class="actions">
+    <label>Image</label>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+    
     <%= f.submit %>
   </div>
 <% end %>
