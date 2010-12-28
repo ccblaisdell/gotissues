@@ -1,7 +1,13 @@
 class HomeController < ApplicationController
   def index
-    @projects = Project.all
-    @assignments = current_user.assignments if current_user
+    if current_user
+      @projects = Project.all
+      @assignments = current_user.assignments
+    else
+      render :action => "visitors"
+    end
   end
-
+  
+  def visitors
+  end
 end

@@ -2,6 +2,7 @@ class IssuesController < ApplicationController
   # GET /issues
   # GET /issues.xml
   before_filter :find_project
+  before_filter :authenticate_user!
   
   def index
     #@issues = @project.issues
