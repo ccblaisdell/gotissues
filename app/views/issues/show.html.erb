@@ -4,9 +4,9 @@
 
   <h1>#<%= @issue.number %> <%= @issue.name %></h1>
 
-  <div class="overview clearfix issue">
+  <div class="overview clearfix">
     <%= link_to @issue.status, cycle_status_path(@project, @issue, :format => :js), :class => "status #{@issue.status}", :remote => true %>
-    <%= assigned_to(@issue) %>
+    <span class="project" data-id="<%= @project.id %>"><%= assigned_to(@issue) %></span>
     <small>
       Created by <%= @issue.user.name %>
       <%= time_ago_in_words @issue.created_at %> ago

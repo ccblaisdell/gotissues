@@ -1,5 +1,5 @@
 $('#issue_<%= @issue.id %>')
-  .removeClass()
+  .removeClass('<%= Issue.states.join(" ") %>')
   .addClass('<%= @issue.status %>')
   .find('.status')
     .html('<%= @issue.status %>')
