@@ -4,7 +4,8 @@ class IssuesController < ApplicationController
   before_filter :find_project
   
   def index
-    @issues = @project.issues
+    #@issues = @project.issues
+    @issues = Issue.order(params[:order_by]).by_project(@project)
     @issue = Issue.new
 
     respond_to do |format|

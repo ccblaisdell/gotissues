@@ -1,5 +1,11 @@
 <h1>Got Issues</h1>
 
+<p>
+  Order by:
+  <%= link_to "Date", project_issues_path(@project) %>
+  <%= link_to "Status", project_issues_path(@project, :order_by => "status") %>
+</p>
+
 <ul class="issues" id="issues">
   <% @issues.each do |issue| %>
     <%= render :partial => "item", :locals => {:issue => issue} %>
@@ -15,7 +21,7 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
   
-  <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }) %>
+  <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }), :include_blank => true %>
   
   <%= f.submit "Create" %>
 <% end %>
