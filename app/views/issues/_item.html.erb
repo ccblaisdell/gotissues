@@ -4,5 +4,5 @@
   <small><%= issue.user.email %></small>
   <small><%= time_ago_in_words issue.created_at %></small>
   <%= assigned_to(issue) %>
-  <%= link_to "×", project_issue_path(@project, issue), :method => :delete, :class => "delete" %>
+  <%= link_to "×", project_issue_path(@project, issue, :format => :js), :method => :delete, :class => "delete", :remote => true %>
 </li>

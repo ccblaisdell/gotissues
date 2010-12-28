@@ -84,6 +84,7 @@ class IssuesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(project_issues_url(@project)) }
       format.xml  { head :ok }
+      format.js   
     end
   end
   
