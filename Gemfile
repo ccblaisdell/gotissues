@@ -13,6 +13,7 @@ gem 'stringex'
 gem 'BlueCloth'
 gem 'carrierwave'
 gem "mini_magick"
+gem 'fog'
 
 
 # Use unicorn as the web server

@@ -39,11 +39,24 @@ GEM
       warden (~> 0.10.7)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    excon (0.3.4)
+    fog (0.3.31)
+      builder
+      excon (>= 0.3.3)
+      formatador (>= 0.0.16)
+      json
+      mime-types
+      named-parameters (>= 0.0.17)
+      net-ssh (>= 2.0.23)
+      nokogiri (>= 1.4.4)
+      ruby-hmac
+    formatador (0.0.16)
     haml (3.0.21)
     i18n (0.5.0)
     jquery-rails (0.2.6)
       rails (~> 3.0)
       thor (~> 0.14.4)
+    json (1.4.6)
     mail (2.2.12)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -53,6 +66,9 @@ GEM
     mini_magick (3.1)
       subexec (~> 0.0.4)
     mysql2 (0.2.6)
+    named-parameters (0.0.20)
+    net-ssh (2.0.23)
+    nokogiri (1.4.4)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -73,6 +89,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    ruby-hmac (0.4.0)
     stringex (1.2.0)
     subexec (0.0.4)
     thor (0.14.6)
@@ -89,6 +106,7 @@ DEPENDENCIES
   BlueCloth
   carrierwave
   devise
+  fog
   haml
   jquery-rails (>= 0.2.6)
   mini_magick

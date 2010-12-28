@@ -8,8 +8,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :s3
+  # storage :file
+  storage :s3
+  
+  CarrierWave.configure do |config|
+    config.s3_access_key_id = 'AKIAJZMHAB4NUFEM5HPA'
+    config.s3_secret_access_key = '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'
+    config.s3_bucket = 'got_issues'
+  end
+  
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
