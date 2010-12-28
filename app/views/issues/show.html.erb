@@ -1,14 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @issue.name %>
-</p>
+<h1><%= @issue.name %></h1>
 
-<p>
-  <b>Description:</b>
-  <%= @issue.description %>
-</p>
+<p><%= @issue.description %></p>
 
 <p>
   <b>Status:</b>
@@ -16,9 +10,18 @@
 </p>
 
 <p>
-  <b>User:</b>
-  <%= @issue.user.email %>
+  <b>Assigned to:</b> <%= assigned_to(@issue) %>
 </p>
+
+<h2>Comments</h2>
+
+<ul class="comments">
+  <% for comment in @issue.comments %>
+    <%= render :partial => "comments/item", :locals => {:comment => comment} %>
+  <% end %>
+</ul>
+
+<%= render :partial => "comments/form" %>
 
 
 <%= link_to 'Edit', edit_project_issue_path(@project, @issue) %> |

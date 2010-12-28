@@ -18,6 +18,7 @@ class IssuesController < ApplicationController
   # GET /issues/1.xml
   def show
     @issue = Issue.find(params[:id])
+    @comment = Comment.new(:issue_id => @issue)
 
     respond_to do |format|
       format.html # show.html.erb

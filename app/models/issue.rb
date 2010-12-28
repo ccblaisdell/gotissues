@@ -5,6 +5,7 @@ class Issue < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
   belongs_to :assignee, :class_name => "User"
+  has_many :comments
   
   STATES = ['open', 'resolved', 'closed', 'reopened']
   

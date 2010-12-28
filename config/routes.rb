@@ -1,6 +1,10 @@
 Gotissues::Application.routes.draw do
+  resources :comments
+
   resources :projects do
-    resources :issues
+    resources :issues do
+      resources :comments
+    end
   end
 
   #resources :issues

@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   
   has_many :issues
   has_many :assignments, :class_name => "Issue", :foreign_key => "assignee_id"
+  has_many :comments
   
   protected
   
