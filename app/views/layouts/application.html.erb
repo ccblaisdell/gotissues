@@ -14,6 +14,7 @@
   <% if user_signed_in? %>
     <p>
       <%= link_to "Projects", projects_path %>
+      <%= link_to (current_user.try(:name) or current_user.try(:email) or "mystery user"), edit_user_registration_path %>
       <%= link_to "Sign out", destroy_user_session_url %>
     </p>
   <% else %>

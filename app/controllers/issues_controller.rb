@@ -44,7 +44,8 @@ class IssuesController < ApplicationController
   # POST /issues
   # POST /issues.xml
   def create
-    params[:issue].merge!({:project_id => @project.id, :user => current_user})
+    
+    params[:issue].merge!({:project_id => @project.id, :user => current_user, :number => assign_number})
     @issue = Issue.new(params[:issue])
     
     respond_to do |format|
@@ -109,5 +110,9 @@ class IssuesController < ApplicationController
   private
   def find_project
     @project = Project.find_by_slug params['project_id']
+  end
+  
+  def assign_number
+    @project.issues.last.nil? ? 1 : @project.issues.last.number + 1
   end
 end
