@@ -10,6 +10,7 @@ gem 'devise'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'haml'
 gem 'stringex'
+gem 'BlueCloth'
 
 # Use unicorn as the web server
 # gem 'unicorn'

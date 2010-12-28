@@ -2,14 +2,14 @@
 
 <h1>#<%= @issue.number %> <%= @issue.name %></h1>
 
-<p><%= @issue.description %></p>
+<%= markdown @issue.description %>
 
 <p>
   <b>Status:</b>
   <%= @issue.status %>
 </p>
 
-<p>
+<p id="issue_<%= @issue.id %>" class="issue" data-id="<%= @issue.id %>">
   <b>Assigned to:</b> <%= assigned_to(@issue) %>
 </p>
 

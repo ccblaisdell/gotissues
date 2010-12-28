@@ -70,7 +70,7 @@ class IssuesController < ApplicationController
 
     respond_to do |format|
       if @issue.update_attributes(params[:issue])
-        format.html { redirect_to(@issue, :notice => 'Issue was successfully updated.') }
+        format.html { redirect_to(project_issue_path(@project, @issue), :notice => 'Issue was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
