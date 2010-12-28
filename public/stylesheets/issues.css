@@ -19,7 +19,7 @@
 .issues small {
   color: #aaa; }
 
-.issues .closed, .issues .closed a, .issues .closed small {
+.issues .closed, .issues .closed a, .issues .closed small, .issues .closed span {
   color: #bbb; }
 
 .issues a.open {

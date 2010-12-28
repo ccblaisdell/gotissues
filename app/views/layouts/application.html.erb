@@ -31,8 +31,9 @@
 <% if user_signed_in? %>
   <script>
     var USERS = [
+      {name: "no one", id: ""}
       <% for user in User.all %>
-        {name: "<%= user.name %>", id: "<%= user.id %>"}
+        ,{name: "<%= user.name %>", id: "<%= user.id %>"}
       <% end %>
     ]
   </script>

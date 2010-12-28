@@ -2,7 +2,6 @@ var settings_switch_assignee_ = {
 };
 
 var methods_switch_assignee = {
-  
   toggle: function($this){
     var $users = $this.nextAll('.change_assignee_list');
     if ($users.is(':visible')){
@@ -10,7 +9,6 @@ var methods_switch_assignee = {
     } else {
       methods_switch_assignee.show($this, $users);
     }
-    console.log('toggle', $this, $users);
   },
   
   hide: function($this, $users){
@@ -18,20 +16,14 @@ var methods_switch_assignee = {
   },
   
   show: function($this, $users){
+    var switcher = $this.next('.switch_assignee');
+    var link_position = switcher.position();
+    $users.css({left: link_position.left, top: link_position.top + switcher.height()});
     $users.show();
   },
   
-  checkOutsideClick: function(event){
-    console.log('checkoutside', event);
-    var $target = $(event.target);
-    if (!$target.parents().andSelf().is('.change_assignee_list')) {
-      $.fn.switchAssignee('closeAll');
-    }
-  },
-  
-  closeAll: function(){
-    console.log('closeAll');
-    $('.change_assignee_list').hide();
+  close: function($this){
+    $this.nextAll('.change_assignee_list').hide();
   }
 };
 
@@ -52,7 +44,7 @@ $.fn.switchAssignee = function( options_or_method ){
                      .attr('href', '#')
                      .click(function(e){
                        e.preventDefault();
-                       methods_switch_assignee['toggle']($this)
+                       methods_switch_assignee['toggle']($this);
                      })
                      .insertAfter($this);
     
@@ -69,9 +61,7 @@ $.fn.switchAssignee = function( options_or_method ){
       // point the link to the assign action
                    .attr('href', '/projects/' + project_id + '/issues/' + issue_id + '/assign_to/' + user.id)
       // have it submit ajax on click
-                   .click(function(e){
-                     e.preventDefault()
-                   })
+                   .attr('data-remote', 'true')
       // append the link to the list item
                    .appendTo(li);
       // append the list item to the list
@@ -80,6 +70,5 @@ $.fn.switchAssignee = function( options_or_method ){
     
     // insert the list after the trigger
     $users.insertAfter($trigger);
-    console.log($this, $trigger, $users);
   });
 };

@@ -1,0 +1,6 @@
+<% if @user %>
+  $('#issue_<%= @issue.id %>').find('.assignee').html('<%= @user.name %>').removeClass('not_assigned');
+<% else %>
+  $('#issue_<%= @issue.id %>').find('.assignee').html('not assigned').addClass('not_assigned');
+<% end %>
+$('.assignee').switchAssignee('close');

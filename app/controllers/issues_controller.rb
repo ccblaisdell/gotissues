@@ -111,12 +111,16 @@ class IssuesController < ApplicationController
   
   def assign_to
     @issue = Issue.find(params[:id])
-    @user = User.find(params[:user_id])
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+    else
+      @user = nil
+    end
     @issue.assignee = @user
     
     respond_to do |format|
       if @issue.save
-        format.js {render :text => "saved!"}
+        format.js
       else
         format.js {render :text => "failed"}
       end

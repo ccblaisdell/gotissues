@@ -1,2 +1,4 @@
-.change_assignee {}
-.change_assignee_list {position: absolute; background: #fff; padding: 5px; list-style: none; margin: 0;}
+.assignee {font-size: 85%;}
+.switch_assignee {font-size: 85%; display: inline-block; margin-left: 3px;}
+.change_assignee_list {position: absolute; background: #fff; padding: 5px; list-style: none; margin: 0; border: 1px solid #ccc;}
+.not_assigned {color: #900;}

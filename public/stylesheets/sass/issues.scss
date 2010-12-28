@@ -4,7 +4,7 @@
 .issues .status {display: inline-block; padding:1px 3px; background: #eee; text-decoration: none;}
 .issues small {color: #aaa;}
 
-.issues .closed, .issues .closed a, .issues .closed small {color: #bbb;}
+.issues .closed, .issues .closed a, .issues .closed small, .issues .closed span {color: #bbb;}
 
 .issues a.open {background: #060; color: #fff;}
 .issues a.closed {background: #fff;}
