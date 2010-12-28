@@ -1,28 +1,32 @@
-<p id="notice"><%= notice %></p>
+<div class="issue" id="issue_<%= @issue.id %>" data-id="<%= @issue.id %>">
+  
+  <p id="notice"><%= notice %></p>
 
-<h1>#<%= @issue.number %> <%= @issue.name %></h1>
+  <h1>#<%= @issue.number %> <%= @issue.name %></h1>
 
-<%= markdown @issue.description %>
+  <div class="overview clearfix issue">
+    <%= link_to @issue.status, cycle_status_path(@project, @issue, :format => :js), :class => "status #{@issue.status}", :remote => true %>
+    <%= assigned_to(@issue) %>
+    <small>
+      Created by <%= @issue.user.name %>
+      <%= time_ago_in_words @issue.created_at %> ago
+    </small>
+  </div>
 
-<p>
-  <b>Status:</b>
-  <%= @issue.status %>
-</p>
+  <div class="description"><%= markdown @issue.description %></div>
 
-<p id="issue_<%= @issue.id %>" class="issue" data-id="<%= @issue.id %>">
-  <b>Assigned to:</b> <%= assigned_to(@issue) %>
-</p>
+  <h2>Comments</h2>
 
-<h2>Comments</h2>
+  <ul class="comments">
+    <% for comment in @issue.comments %>
+      <%= render :partial => "comments/item", :locals => {:comment => comment} %>
+    <% end %>
+  </ul>
 
-<ul class="comments">
-  <% for comment in @issue.comments %>
-    <%= render :partial => "comments/item", :locals => {:comment => comment} %>
-  <% end %>
-</ul>
-
-<%= render :partial => "comments/form" %>
+  <%= render :partial => "comments/form" %>
 
 
-<%= link_to 'Edit', edit_project_issue_path(@project, @issue) %> |
-<%= link_to 'Back', project_issues_path(@project) %>
+  <%= link_to 'Edit', edit_project_issue_path(@project, @issue) %> |
+  <%= link_to 'Back', project_issues_path(@project) %>
+
+</div>

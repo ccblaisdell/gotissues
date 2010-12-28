@@ -1,12 +1,19 @@
+@import "mixins";
+
 .issues {margin: 0; padding: 0; list-style: none;}
 .issues li {margin: 0; padding: 2px 0;}
 .issues li:nth-child(3n) {border-bottom: 1px solid #eee;}
-.issues .status {display: inline-block; padding:1px 3px; background: #eee; text-decoration: none;}
+.issues .status, .issue .status {display: inline-block; padding:1px 3px; background: #eee; text-decoration: none;}
 .issues small {color: #aaa;}
 
 .issues .closed, .issues .closed a, .issues .closed small, .issues .closed span {color: #bbb;}
 
-.issues a.open {background: #060; color: #fff;}
-.issues a.closed {background: #fff;}
-.issues a.reopened {background: #090; color: #fff;}
-.issues a.resolved {background: #e8bf67; color: #fff;}
+.issues a.open    , .issue a.open     {background: #060; color: #fff;}
+.issues a.closed  , .issue a.closed   {background: #fff;}
+.issues a.reopened, .issue a.reopened {background: #090; color: #fff;}
+.issues a.resolved, .issue a.resolved {background: #e8bf67; color: #fff;}
+
+/* show
+*/
+.overview {padding: 10px; background:#fafafa; @include rounded; margin:10px 0 20px;}
+.description {border: 1px solid #ddd; padding: 20px; margin: 20px 0;}

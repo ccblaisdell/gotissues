@@ -10,7 +10,7 @@
 .issues li:nth-child(3n) {
   border-bottom: 1px solid #eee; }
 
-.issues .status {
+.issues .status, .issue .status {
   display: inline-block;
   padding: 1px 3px;
   background: #eee;
@@ -22,17 +22,32 @@
 .issues .closed, .issues .closed a, .issues .closed small, .issues .closed span {
   color: #bbb; }
 
-.issues a.open {
+.issues a.open, .issue a.open {
   background: #060;
   color: #fff; }
 
-.issues a.closed {
+.issues a.closed, .issue a.closed {
   background: #fff; }
 
-.issues a.reopened {
+.issues a.reopened, .issue a.reopened {
   background: #090;
   color: #fff; }
 
-.issues a.resolved {
+.issues a.resolved, .issue a.resolved {
   background: #e8bf67;
   color: #fff; }
+
+/* show
+*/
+.overview {
+  padding: 10px;
+  background: #fafafa;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  margin: 10px 0 20px; }
+
+.description {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px 0; }
