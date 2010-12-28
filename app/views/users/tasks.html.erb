@@ -1,0 +1,2 @@
+<h1><%= current_user.try(:name) or current_user.try(:email) or "Mystery User" %>'s Tasks</h1>
+<%= render :partial => "my_tasks" %>

@@ -1,9 +1,9 @@
 module IssuesHelper
   def assigned_to(issue)
     if issue and issue.assignee
-      "<strong class=\"assignee\">#{issue.assignee.name}</strong>".html_safe
+      link_to issue.assignee.name, user_tasks_path(issue.assignee), :class => "assignee"
     else
-      "not assigned"
+      content_tag :span, "not assigned", :class => "assignee not_assigned"
     end
   end
 end
