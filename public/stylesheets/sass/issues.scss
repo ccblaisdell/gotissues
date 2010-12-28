@@ -1,13 +1,12 @@
 .issues {margin: 0; padding: 0; list-style: none;}
-.issues li {margin: 0; padding: 1px 0;}
+.issues li {margin: 0; padding: 2px 0;}
+.issues li:nth-child(3n) {border-bottom: 1px solid #eee;}
 .issues .status {display: inline-block; padding:1px 3px; background: #eee; text-decoration: none;}
 .issues small {color: #aaa;}
 
-.issues li.opened {}
-.issues li.closed, .issues li.closed a {color: #aaa;}
-.issues li.reopened {}
+.issues .closed, .issues .closed a, .issues .closed small {color: #bbb;}
 
 .issues a.open {background: #060; color: #fff;}
-.issues a.closed {}
+.issues a.closed {background: #fff;}
 .issues a.reopened {background: #090; color: #fff;}
 .issues a.resolved {background: #e8bf67; color: #fff;}

@@ -3,3 +3,8 @@ body {padding: 20px 40px;}
 
 .delete, .delete:link, .delete:visited {display: inline-block; text-decoration: none; line-height: 1; padding:0 4px 2px; color: #aaa; font-weight: bold;} 
 .delete:hover, .delete:active {background: #900; color: #fff;}
+
+nav {margin: 0 0 20px;}
+nav ul {list-style:none; margin:0; padding: 0;}
+nav li {float: left; padding:2px 5px;}
+nav a {display: block; float: left; padding: 2px 5px; margin: -2px -5px;}

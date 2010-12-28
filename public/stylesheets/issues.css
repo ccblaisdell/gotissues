@@ -5,7 +5,10 @@
 
 .issues li {
   margin: 0;
-  padding: 1px 0; }
+  padding: 2px 0; }
+
+.issues li:nth-child(3n) {
+  border-bottom: 1px solid #eee; }
 
 .issues .status {
   display: inline-block;
@@ -16,12 +19,15 @@
 .issues small {
   color: #aaa; }
 
-.issues li.closed, .issues li.closed a {
-  color: #aaa; }
+.issues .closed, .issues .closed a, .issues .closed small {
+  color: #bbb; }
 
 .issues a.open {
   background: #060;
   color: #fff; }
+
+.issues a.closed {
+  background: #fff; }
 
 .issues a.reopened {
   background: #090;
