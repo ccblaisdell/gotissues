@@ -4,7 +4,7 @@
 .issues small {color: #aaa;}
 
 .issues li.opened {}
-.issues li.closed {}
+.issues li.closed, .issues li.closed a {color: #aaa;}
 .issues li.reopened {}
 
 .issues a.open {background: #060; color: #fff;}

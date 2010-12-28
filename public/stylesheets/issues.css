@@ -16,6 +16,9 @@
 .issues small {
   color: #aaa; }
 
+.issues li.closed, .issues li.closed a {
+  color: #aaa; }
+
 .issues a.open {
   background: #060;
   color: #fff; }
