@@ -3,8 +3,10 @@
     <li>
       <h3><%= @project.name %></h3>
       <ul class="issues">
-        <% for issue in @assignments.by_project(@project) %>
-          <%= render :partial => "issues/item", :locals => {:issue => issue} %>
+        <% if @assignments %>
+          <% for issue in @assignments.by_project(@project) %>
+            <%= render :partial => "issues/item", :locals => {:issue => issue} %>
+          <% end %>
         <% end %>
       </ul>
     </li>
