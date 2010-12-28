@@ -2,8 +2,6 @@ class Issue < ActiveRecord::Base
   validates :name,  :presence => true
   validates :status,  :presence => true
   
-  attr_accessible :assignee
-  
   belongs_to :user
   belongs_to :project
   belongs_to :assignee, :class_name => "User"

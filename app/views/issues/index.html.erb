@@ -7,7 +7,6 @@
 </ul>
 
 <%= form_for([@project, @issue], :remote => true, :format => :js) do |f| %>
-  <%= f.hidden_field :user_id %>
   <h2>new issue</h2>
   
   <%= f.label :name %>
