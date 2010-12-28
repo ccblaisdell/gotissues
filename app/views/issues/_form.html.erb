@@ -22,8 +22,11 @@
   
   <% unless @issue.new_record? %>
     <div class="field">
-      <%= f.label :status %><br/>
+      <%= f.label :status %>
       <%= f.select :status, Issue.states %>
+      
+      <%= f.label :assignee_id %>
+      <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }), :include_blank => true, :id => "issue_assignee_id"  %>
     </div>
   <% end %>
   

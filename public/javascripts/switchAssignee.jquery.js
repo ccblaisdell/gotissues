@@ -1,4 +1,6 @@
-var settings_switch_assignee_ = {
+var settings_switch_assignee = {
+  open_text: "&#x25BC;", // down arrow
+  close_text: "&#x25B2;" // up arrow
 };
 
 var methods_switch_assignee = {
@@ -13,17 +15,19 @@ var methods_switch_assignee = {
   
   hide: function($this, $users){
     $users.hide();
+    $this.nextAll('.switch_assignee').html(settings_switch_assignee.open_text);
   },
   
   show: function($this, $users){
     var switcher = $this.next('.switch_assignee');
     var link_position = switcher.position();
-    $users.css({left: link_position.left, top: link_position.top + switcher.height()});
+    $users.css({left: link_position.left - 15, top: link_position.top + switcher.height() + 20});
     $users.show();
+    $this.nextAll('.switch_assignee').html(settings_switch_assignee.close_text);
   },
   
   close: function($this){
-    $this.nextAll('.change_assignee_list').hide();
+    methods_switch_assignee.hide($this, $this.nextAll('.change_assignee_list'));
   }
 };
 
@@ -33,13 +37,13 @@ $.fn.switchAssignee = function( options_or_method ){
     if ( methods_switch_assignee[options_or_method] ) {
       return methods_switch_assignee[ options_or_method ].call( this, $( this ) );
     } else {
-      $.extend(settings_switch_assignee_, options_or_method);
+      $.extend(settings_switch_assignee, options_or_method);
     }
             
     var $this = $(this);
     
     var $trigger = $('<a></a>')
-                     .html('change')
+                     .html(settings_switch_assignee.open_text)
                      .addClass('switch_assignee')
                      .attr('href', '#')
                      .click(function(e){
@@ -49,6 +53,7 @@ $.fn.switchAssignee = function( options_or_method ){
                      .insertAfter($this);
     
     var $users = $('<ul></ul>').addClass('users change_assignee_list').hide();
+    var $arrow = $('<li></li>').addClass('arrow').appendTo($users);
     
     $.each(USERS, function(index, user){
       var project_id = $this.closest('.project').attr('data-id');
