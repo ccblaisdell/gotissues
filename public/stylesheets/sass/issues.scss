@@ -1,10 +1,11 @@
 @import "mixins";
 
 .issues {margin: 0; padding: 0; list-style: none;}
-.issues li {margin: 0; padding: 2px 0;}
+.issues li {margin: 0; padding: 2px 0; clear: both;}
 .issues li:nth-child(3n) {border-bottom: 1px solid #eee;}
 .issues .status, .issue .status {display: inline-block; padding:1px 3px; background: #eee; text-decoration: none;}
 .issues small {color: #aaa;}
+.issues .metadata {display: block; float: right;}
 
 .issues .closed, .issues .closed a, .issues .closed small, .issues .closed span {color: #bbb;}
 

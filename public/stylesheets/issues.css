@@ -5,7 +5,8 @@
 
 .issues li {
   margin: 0;
-  padding: 2px 0; }
+  padding: 2px 0;
+  clear: both; }
 
 .issues li:nth-child(3n) {
   border-bottom: 1px solid #eee; }
@@ -18,6 +19,10 @@
 
 .issues small {
   color: #aaa; }
+
+.issues .metadata {
+  display: block;
+  float: right; }
 
 .issues .closed, .issues .closed a, .issues .closed small, .issues .closed span {
   color: #bbb; }

@@ -2,7 +2,9 @@
   <%= link_to issue.status, cycle_status_path(@project, issue, :format => :js), :class => "status #{issue.status}", :remote => true %>
   <span class="issue_number">#<%= issue.number %></span>
   <%= link_to issue.name, project_issue_path(@project, issue) %>
-  <small class="age"><%= time_ago_in_words issue.created_at %></small>
-  <%= assigned_to(issue) %>
-  <%= link_to "×", project_issue_path(@project, issue, :format => :js), :method => :delete, :class => "delete", :remote => true %>
+  <span class="metadata">
+    <small class="age"><%= time_ago_in_words issue.created_at %></small>
+    <%= assigned_to(issue) %>
+    <%= link_to "×", project_issue_path(@project, issue, :format => :js), :method => :delete, :class => "delete", :remote => true %>
+  </span>
 </li>
