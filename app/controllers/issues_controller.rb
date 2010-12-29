@@ -20,6 +20,7 @@ class IssuesController < ApplicationController
   def show
     @issue = Issue.find(params[:id])
     @comment = Comment.new(:issue_id => @issue)
+    @comment.images.build
 
     respond_to do |format|
       format.html # show.html.erb
