@@ -31,10 +31,6 @@
   <% end %>
   
   <div class="actions">
-    <label for="issue_image">Image</label>
-    <%= f.file_field :image %>
-    <%= f.hidden_field :image_cache %>
-    
     <label for="issue_assignee_id">Assigned to</label>
     <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }), :include_blank => true %>
     

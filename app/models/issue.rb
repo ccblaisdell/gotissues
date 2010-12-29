@@ -6,8 +6,7 @@ class Issue < ActiveRecord::Base
   belongs_to :project
   belongs_to :assignee, :class_name => "User"
   has_many :comments
-  
-  mount_uploader :image, ImageUploader
+  has_many :images, :as => :imageable
   
   STATES = ['open', 'resolved', 'closed', 'reopened']
   

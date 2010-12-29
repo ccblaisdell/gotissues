@@ -1,4 +1,6 @@
 Gotissues::Application.routes.draw do
+  resources :images
+
   resources :comments
 
   resources :projects do

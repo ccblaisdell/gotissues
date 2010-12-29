@@ -1,5 +1,4 @@
 <li>
   <small><%= time_ago_in_words comment.created_at %> ago, <%= comment.user.name %> said</small>
   <%= markdown comment.body %>
-  <%= link_to image_tag(comment.image_url(:thumb)), comment.image_url if comment.image? %>
 </li>

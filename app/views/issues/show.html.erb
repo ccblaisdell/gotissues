@@ -15,7 +15,11 @@
 
   <div class="description"><%= markdown @issue.description %></div>
   
-  <%= link_to image_tag(@issue.image_url(:medium)), @issue.image_url if @issue.image? %>
+  <% for image in @issue.images %>
+    <%= link_to image_tag(image.image.url(:medium)), image.image.url %>
+  <% end %>
+  <% @image = Image.new(:imageable_id => @issue.id, :imageable_type => "Issue") %>
+  <%= render :partial => "images/form" %>
 
   <h2>Comments</h2>
 
