@@ -18,10 +18,8 @@
   <%= f.label :name %>
   <%= f.text_field :name %>
   
-  <p>
-    <%= f.label :description %>
-    <%= f.text_area :description, :rows => 2 %>
-  </p>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
   
   <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }), :include_blank => true %>
   
