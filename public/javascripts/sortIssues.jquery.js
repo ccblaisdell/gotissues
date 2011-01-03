@@ -12,12 +12,12 @@ var methods_sort_issues = {
     if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'asc') {
       $button.attr('data-sort-order', 'desc');
       $this.find('> li').sortElements(function(a,b){
-        return $(a).find('.status').first().html > $(b).find('.status').first().html() ? -1 : 1;
+        return $(a).find('.status').first().html() > $(b).find('.status').first().html() ? -1 : 1;
       });
     } else {
       $button.attr('data-sort-order', 'asc');
       $this.find('> li').sortElements(function(a,b){
-        return $(a).find('.status').first().html > $(b).find('.status').first().html() ? 1 : -1;
+        return $(a).find('.status').first().html() > $(b).find('.status').first().html() ? 1 : -1;
       });
     }
   },
