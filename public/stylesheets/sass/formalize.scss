@@ -57,45 +57,6 @@ textarea {
 	vertical-align: middle;
 }
 
-button, .button,
-input[type="reset"],
-input[type="submit"],
-input[type="button"] {
-	-webkit-appearance: none;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	border-radius: 4px;
-	background: #ddd url(../images/button.png) repeat-x;
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fff), color-stop(1, #ddd));
-	background: -moz-linear-gradient(top center, #fff 0%, #ddd 100%);
-	border: 1px solid;
-	border-color: #ddd #bbb #999;
-	cursor: pointer;
-	color: #333;
-	outline: 0;
-	overflow: visible;
-	padding: 3px 10px 4px;
-	text-shadow: #fff 0 1px 1px;
-	width: auto;
-
-	/* IE7 */
-	*padding-top: 2px;
-	*padding-bottom: 0px;
-}
-
-button {
-	/* IE7 */
-	*padding-top: 1px;
-	*padding-bottom: 1px;
-}
-
-button[disabled],
-input[type="reset"][disabled],
-input[type="submit"][disabled],
-input[type="button"][disabled] {
-	color: #888;
-}
-
 textarea,
 select,
 input[type="date"],
@@ -183,7 +144,7 @@ textarea:active {
 
 .is_webkit select {
 	/* Tweaks for Safari + Chrome. */
-	background-image: url(../images/select_arrow.gif);
+	background-image: url(/images/select_arrow.gif);
 	background-repeat: no-repeat;
 	background-position: right center;
 	padding-right: 20px;
@@ -239,7 +200,7 @@ optgroup {
 
 .ie6_button,
 * html button {
-	background: #ddd url(../images/button.png) repeat-x;
+	background: #ddd url(/images/button.png) repeat-x;
 	border: 1px solid;
 	border-color: #ddd #bbb #999;
 	cursor: pointer;
