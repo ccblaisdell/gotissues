@@ -1,16 +1,16 @@
 <h1><%= @project.name %></h1>
 
-<p>
-  Order by:
-  <%= link_to "Date", project_issues_path(@project) %>
-  <%= link_to "Status", project_issues_path(@project, :order_by => "status") %>
-</p>
-
 <ul class="issues project" id="issues" data-id="<%= @project.id %>">
   <% @issues.each do |issue| %>
     <%= render :partial => "item", :locals => {:issue => issue} %>
   <% end %>
 </ul>
+
+<script>
+  $(function(){
+    $('#issues').sortIssues();
+  })
+</script>
 
 <%= form_for([@project, @issue], :remote => true, :format => :js) do |f| %>
   <h2>new issue</h2>

@@ -56,3 +56,18 @@
   border: 1px solid #ddd;
   padding: 20px;
   margin: 20px 0; }
+
+/* sort and filter menus
+*/
+.menu a {
+  display: inline-block;
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+  background: #eee;
+  border-right-width: 0; }
+
+.menu a:last-child {
+  border-right-width: 1px; }
+
+.menu .selected {
+  background: #fff; }

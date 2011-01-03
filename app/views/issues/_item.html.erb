@@ -1,4 +1,4 @@
-<li id="issue_<%= issue.id %>" class="<%= issue.status %> issue" data-id="<%= issue.id %>">
+<li id="issue_<%= issue.id %>" class="<%= issue.status %> issue <%= "old_and_closed" if old_and_closed?(issue) %>" data-id="<%= issue.id %>" data-updated-at="<%= issue.updated_at.to_s %>" data-user="<%= issue.user %>" data-created-at="<%= issue.created_at %>" data-number="<%= issue.number %>" data-status="<%= issue.status %>"> 
   <%= link_to issue.status, cycle_status_path(@project, issue, :format => :js), :class => "status #{issue.status}", :remote => true %>
   <span class="issue_number">#<%= issue.number %></span>
   <%= link_to issue.name, project_issue_path(@project, issue) %>

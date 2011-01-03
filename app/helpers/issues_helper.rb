@@ -6,4 +6,8 @@ module IssuesHelper
       content_tag :span, "not assigned", :class => "assignee not_assigned"
     end
   end
+  
+  def old_and_closed?(issue)
+    issue.status == "closed" and issue.updated_at > 1.day.ago
+  end
 end
