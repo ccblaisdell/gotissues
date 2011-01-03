@@ -74,16 +74,20 @@ var methods_sort_issues = {
   },
   
   // filter functions
-  filter_open: function($this){
+  filter_open: function($this, $button){
+    $button.toggleClass('selected');
     $this.find('> .open').toggle();
   },
-  filter_closed: function($this){
+  filter_closed: function($this, $button){
+    $button.toggleClass('selected');
     $this.find('> .closed').toggle();
   },
-  filter_resolved: function($this){
+  filter_resolved: function($this, $button){
+    $button.toggleClass('selected');
     $this.find('> .resolved').toggle();
   },
-  filter_reopened: function($this){
+  filter_reopened: function($this, $button){
+    $button.toggleClass('selected');
     $this.find('> .reopened').toggle();
   }
 };
@@ -142,32 +146,28 @@ $.fn.sortIssues = function( options_or_method ){
       .html("open").addClass('selected')
       .click(function(e){
         e.preventDefault();
-        $(this).toggleClass('selected');
-        methods_sort_issues.filter_open($this);
+        methods_sort_issues.filter_open($this, $(this));
       });
     
     var $filter_closed = $('<a href="#"></a>')
       .html("closed").addClass('selected')
       .click(function(e){
         e.preventDefault();
-        $(this).toggleClass('selected');
-        methods_sort_issues.filter_closed($this);
+        methods_sort_issues.filter_closed($this, $(this));
       });
   
     var $filter_resolved = $('<a href="#"></a>')
       .html("resolved").addClass('selected')
       .click(function(e){
         e.preventDefault();
-        $(this).toggleClass('selected');
-        methods_sort_issues.filter_resolved($this);
+        methods_sort_issues.filter_resolved($this, $(this));
       });
       
     var $filter_reopened = $('<a href="#"></a>')
       .html("reopened").addClass('selected')
       .click(function(e){
         e.preventDefault();
-        $(this).toggleClass('selected');
-        methods_sort_issues.filter_reopened($this);
+        methods_sort_issues.filter_reopened($this, $(this));
       });
     
     // build sort menu
@@ -175,5 +175,6 @@ $.fn.sortIssues = function( options_or_method ){
       .appendTo($menu);
     
     $menu.insertBefore($this);
+    methods_sort_issues.filter_closed($this, $filter_closed);
   });
 };
