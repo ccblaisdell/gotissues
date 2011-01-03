@@ -6,7 +6,7 @@ class IssuesController < ApplicationController
   
   def index
     #@issues = @project.issues
-    @issues = Issue.order(params[:order_by]).by_project(@project)
+    @issues = Issue.order("created_at ASC").by_project(@project)
     @issue = Issue.new
 
     respond_to do |format|
