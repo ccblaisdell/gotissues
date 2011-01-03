@@ -55,6 +55,23 @@ var methods_sort_issues = {
       });
     }
   },
+  sort_by_assignee_id: function($this, $button){
+    $button.parent('.buttongroup').find('.selected').removeClass('selected');
+    $button.addClass('selected');
+    
+    // determine sort order and sort the items
+    if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'asc') {
+      $button.attr('data-sort-order', 'desc');
+      $this.find('> li').sortElements(function(a,b){
+        return $(a).attr('data-assignee-id') > $(b).attr('data-assignee-id') ? -1 : 1;
+      });
+    } else {
+      $button.attr('data-sort-order', 'asc');
+      $this.find('> li').sortElements(function(a,b){
+        return $(a).attr('data-assignee-id') > $(b).attr('data-assignee-id') ? 1 : -1;
+      });
+    }
+  },
   
   // filter functions
   filter_open: function($this){
@@ -104,11 +121,18 @@ $.fn.sortIssues = function( options_or_method ){
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.sort_by_created_at($this, $(this));
+      });  
+      
+    var $by_assigned_to = $('<a href="#"></a>')
+      .html("by assignee")
+      .click(function(e){
+        e.preventDefault();
+        methods_sort_issues.sort_by_assignee_id($this, $(this));
       });
     
     
     // build sort menu
-    $sort_by.append($by_status, $by_updated_at, $by_created_at)
+    $sort_by.append($by_status, $by_updated_at, $by_created_at, $by_assigned_to)
       .appendTo($menu);
       
     // filter menu
