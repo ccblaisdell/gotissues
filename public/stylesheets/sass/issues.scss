@@ -24,7 +24,7 @@
 .menu {}
 .buttongroup {display: inline-block; margin-right: 10px; @include rounded(5px);}
 .menu a {
-  display: inline-block; padding:2px 4px; border: 1px solid #ccc; background: #eee; border-right-width:0; color: #666; text-decoration: none;
+  display: inline-block; padding:2px 4px; border: 1px solid #ccc; background: #eee; border-right-width:0; color: #666; text-decoration: none; font-size: 11px; text-shadow: 0 1px 0 #fff;
   background-image: -moz-linear-gradient(top, #ffffff, #eeeeee); /* FF3.6 */
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ffffff),color-stop(1, #eeeeee)); /* Saf4+, Chrome */
             filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#eeeeee'); /* IE6,IE7 */
@@ -48,7 +48,7 @@
   border-bottom-right-radius:         4px;
 }
 .menu .selected {
-  background: #666; color: #fff;
+  background: #666; color: #fff; text-shadow: 0 1px 0 rgba(0,0,0,0.5);
   background-image: -moz-linear-gradient(top, #666666, #999999); /* FF3.6 */
   background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #666666),color-stop(1, #999999)); /* Saf4+, Chrome */
             filter:  progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666', EndColorStr='#999999'); /* IE6,IE7 */

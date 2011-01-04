@@ -4,6 +4,8 @@ var settings_sort_issues = {
 var methods_sort_issues = {
   // sort functions
   sort_by_status: function($this, $button){
+    methods_sort_issues.working($this);
+    
     // make this the selected button
     $button.parent('.buttongroup').find('.selected').removeClass('selected');
     $button.addClass('selected');
@@ -20,8 +22,11 @@ var methods_sort_issues = {
         return $(a).find('.status').first().html() > $(b).find('.status').first().html() ? 1 : -1;
       });
     }
+    methods_sort_issues.finished($this);
   },
   sort_by_updated_at: function($this, $button){
+    methods_sort_issues.working($this);
+  
     $button.parent('.buttongroup').find('.selected').removeClass('selected');
     $button.addClass('selected');
     
@@ -37,8 +42,11 @@ var methods_sort_issues = {
         return $(a).attr('data-updated-at') > $(b).attr('data-updated-at') ? 1 : -1;
       });
     }
+    methods_sort_issues.finished($this);
   },
   sort_by_created_at: function($this, $button){
+    methods_sort_issues.working($this);
+  
     $button.parent('.buttongroup').find('.selected').removeClass('selected');
     $button.addClass('selected');
     
@@ -54,8 +62,11 @@ var methods_sort_issues = {
         return $(a).attr('data-created-at') > $(b).attr('data-created-at') ? 1 : -1;
       });
     }
+    methods_sort_issues.finished($this);
   },
   sort_by_assignee_id: function($this, $button){
+    methods_sort_issues.working($this);
+  
     $button.parent('.buttongroup').find('.selected').removeClass('selected');
     $button.addClass('selected');
     
@@ -71,24 +82,45 @@ var methods_sort_issues = {
         return $(a).attr('data-assignee-id') > $(b).attr('data-assignee-id') ? 1 : -1;
       });
     }
+    methods_sort_issues.finished($this);
   },
   
   // filter functions
   filter_open: function($this, $button){
+    methods_sort_issues.working($this);
+  
     $button.toggleClass('selected');
     $this.find('> .open').toggle();
+    methods_sort_issues.finished($this);
   },
   filter_closed: function($this, $button){
+    methods_sort_issues.working($this);
+  
     $button.toggleClass('selected');
     $this.find('> .closed').toggle();
+    methods_sort_issues.finished($this);
   },
   filter_resolved: function($this, $button){
+    methods_sort_issues.working($this);
+  
     $button.toggleClass('selected');
     $this.find('> .resolved').toggle();
+    methods_sort_issues.finished($this);
   },
   filter_reopened: function($this, $button){
+    methods_sort_issues.working($this);
+  
     $button.toggleClass('selected');
     $this.find('> .reopened').toggle();
+    methods_sort_issues.finished($this);
+  },
+  
+  // busy and not busy
+  working: function($this){
+    $this.addClass("working");
+  },
+  finished: function($this){
+    $this.removeClass("working");
   }
 };
 
@@ -107,28 +139,28 @@ $.fn.sortIssues = function( options_or_method ){
     // Create sort menu
     var $sort_by = $('<span class="buttongroup"></span>').html("Order by: ");
     var $by_status = $('<a href="#"></a>')
-      .html("by status")
+      .html("status")
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.sort_by_status($this, $(this));
       });
     
     var $by_updated_at = $('<a href="#"></a>')
-      .html("by date updated")
+      .html("updated")
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.sort_by_updated_at($this, $(this));
       });      
       
     var $by_created_at = $('<a href="#"></a>')
-      .html("by date created").addClass("selected")
+      .html("created").addClass("selected")
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.sort_by_created_at($this, $(this));
       });  
       
     var $by_assigned_to = $('<a href="#"></a>')
-      .html("by assignee")
+      .html("assignee")
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.sort_by_assignee_id($this, $(this));
