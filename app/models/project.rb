@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  has_many :issues
+  has_many :issues, :dependent => :destroy
   
   acts_as_url :name, :url_attribute => :slug
   
