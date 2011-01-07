@@ -18,13 +18,12 @@
   padding: 5px;
   list-style: none;
   margin: 0;
-  border: 5px solid #ddd;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
+  -moz-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1); }
 
 .change_assignee_list a {
   display: block; }
@@ -37,7 +36,7 @@
   height: 1px;
   position: absolute;
   top: -18px;
-  right: 13px; }
+  right: 17px; }
 
 .not_assigned {
   color: #900; }

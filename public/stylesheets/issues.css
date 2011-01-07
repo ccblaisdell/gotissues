@@ -57,13 +57,13 @@
   background-position: 5px 55%;
   background-repeat: no-repeat; }
 
-.desc, .comments, .images {
+.desc, span.comments, .images {
   padding-left: 13px;
   background: url(/images/doc.gif) 0 3px no-repeat;
   font-size: 11px;
   color: #aaa; }
 
-.comments {
+span.comments {
   background-image: url(/images/bubble.gif); }
 
 .images {
