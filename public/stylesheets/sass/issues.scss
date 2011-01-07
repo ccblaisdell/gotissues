@@ -76,3 +76,5 @@ span.comments {background-image: url(/images/bubble.gif);}
 }
 .menu a small {@include rounded(10px); background: rgba(0,0,0,0.1); padding:1px 3px;}
 .menu .selected small {background: rgba(255,255,255,0.2);}
+.menu .selected[data-sort-order="asc"]:after {content: " \25B2"; font-size: 9px;}
+.menu .selected[data-sort-order="desc"]:after {content: " \25BC"; font-size: 9px;}

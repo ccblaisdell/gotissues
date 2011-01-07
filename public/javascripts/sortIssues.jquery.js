@@ -1,4 +1,6 @@
 var settings_sort_issues = {
+  sort_desc_text: "&#x25BC;", // down arrow
+  sort_asc_text: "&#x25B2;" // up arrow
 };
 
 var methods_sort_issues = {
@@ -34,12 +36,12 @@ var methods_sort_issues = {
     if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'asc') {
       $button.attr('data-sort-order', 'desc');
       $this.find('> li').sortElements(function(a,b){
-        return $(a).attr('data-updated-at') > $(b).attr('data-updated-at') ? -1 : 1;
+        return $(a).attr('data-updated-at') > $(b).attr('data-updated-at') ? 1 : -1;
       });
     } else {
       $button.attr('data-sort-order', 'asc');
       $this.find('> li').sortElements(function(a,b){
-        return $(a).attr('data-updated-at') > $(b).attr('data-updated-at') ? 1 : -1;
+        return $(a).attr('data-updated-at') > $(b).attr('data-updated-at') ? -1 : 1;
       });
     }
     methods_sort_issues.finished($this);
@@ -54,12 +56,12 @@ var methods_sort_issues = {
     if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'asc') {
       $button.attr('data-sort-order', 'desc');
       $this.find('> li').sortElements(function(a,b){
-        return $(a).attr('data-created-at') > $(b).attr('data-created-at') ? -1 : 1;
+        return $(a).attr('data-created-at') > $(b).attr('data-created-at') ? 1 : -1;
       });
     } else {
       $button.attr('data-sort-order', 'asc');
       $this.find('> li').sortElements(function(a,b){
-        return $(a).attr('data-created-at') > $(b).attr('data-created-at') ? 1 : -1;
+        return $(a).attr('data-created-at') > $(b).attr('data-created-at') ? -1 : 1;
       });
     }
     methods_sort_issues.finished($this);
