@@ -8,6 +8,9 @@
   padding: 2px 0;
   clear: both; }
 
+.issues li:hover {
+  background-color: #f0fafe; }
+
 .issues li:nth-child(3n) {
   border-bottom: 1px solid #eee; }
 
@@ -47,6 +50,18 @@
 .issues a.resolved, .issue a.resolved {
   background: #e8bf67;
   color: #fff; }
+
+.desc, .comments, .images {
+  padding-left: 13px;
+  background: url(/images/doc.gif) 0 3px no-repeat;
+  font-size: 11px;
+  color: #aaa; }
+
+.comments {
+  background-image: url(/images/bubble.gif); }
+
+.images {
+  background-image: url(/images/polaroid.gif); }
 
 /* new issue form
 */

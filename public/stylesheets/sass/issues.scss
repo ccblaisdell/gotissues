@@ -2,6 +2,7 @@
 
 .issues {margin: 0; padding: 0; list-style: none;}
 .issues li {margin: 0; padding: 2px 0; clear: both;}
+.issues li:hover {background-color: hsl(200,90%,97%);}
 .issues li:nth-child(3n) {border-bottom: 1px solid #eee;}
 .issues li:nth-child(3n+1) {border-bottom: 1px solid #f4f4f4;}
 .issues li:nth-child(3n+2) {border-bottom: 1px solid #f4f4f4;}
@@ -15,6 +16,11 @@
 .issues a.closed  , .issue a.closed   {background: #fff;}
 .issues a.reopened, .issue a.reopened {background: #090; color: #fff;}
 .issues a.resolved, .issue a.resolved {background: #e8bf67; color: #fff;}
+
+.desc, .comments, .images {padding-left: 13px; background: url(/images/doc.gif) 0 3px no-repeat; font-size: 11px; color: #aaa;}
+.desc {}
+.comments {background-image: url(/images/bubble.gif);}
+.images {background-image: url(/images/polaroid.gif);}
 
 /* new issue form
 */

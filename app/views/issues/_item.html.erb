@@ -3,6 +3,15 @@
   <span class="issue_number">#<%= issue.number %></span>
   <%= link_to issue.name, project_issue_path(@project, issue) %>
   <span class="metadata">
+    <% unless issue.description.nil? or issue.description.blank? %>
+      <span class="desc"> </span>
+    <% end %>
+    <% if issue.comments.length > 0 %>
+      <span class="comments"><%= issue.comments.length %></span>
+    <% end %>
+    <% if issue.images and issue.images.length > 0 %>
+      <span class="images"><%= issue.images.length %></span>
+    <% end %>
     <small class="age"><%= time_ago_in_words issue.created_at %> old</small>
     <%= assigned_to(issue) %>
     <%= link_to "×", project_issue_path(@project, issue, :format => :js), :method => :delete, :class => "delete", :remote => true, :confirm => "This can't be undone. Do you want to delete this issue?" %>
