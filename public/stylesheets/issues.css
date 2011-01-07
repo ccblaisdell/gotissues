@@ -163,3 +163,13 @@ span.comments {
   /* IE6,IE7 */
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#666666', EndColorStr='#999999')";
   /* IE8 */ }
+
+.menu a small {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1px 3px; }
+
+.menu .selected small {
+  background: rgba(255, 255, 255, 0.2); }

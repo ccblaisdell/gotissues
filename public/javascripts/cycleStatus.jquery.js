@@ -23,6 +23,15 @@ function switchStatus (switcher, status) {
       switcher.html(original_status);
     }
   });
+  
+  var $list = switcher.closest('.issues');
+  methods_sort_issues.update_filter_counts(
+    $list,
+    $list.prev().find('.filter_open'),
+    $list.prev().find('.filter_closed'),
+    $list.prev().find('.filter_resolved'),
+    $list.prev().find('.filter_reopened')
+  );
 }
 
 $(function(){

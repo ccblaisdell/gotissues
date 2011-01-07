@@ -141,6 +141,26 @@ var methods_sort_issues = {
   },
   finished: function($this){
     $this.removeClass("working");
+  },
+  
+  // filter counts
+  update_filter_open_count: function($this, $button){
+    $button.html( "open <small>" + $this.find('li.open').length + "</small>" );
+  },
+  update_filter_closed_count: function($this, $button){
+    $button.html( "closed <small>" + $this.find('li.closed').length + "</small>" );
+  },
+  update_filter_resolved_count: function($this, $button){
+    $button.html( "resolved <small>" + $this.find('li.resolved').length + "</small>" );
+  },
+  update_filter_reopened_count: function($this, $button){
+    $button.html( "reopened <small>" + $this.find('li.reopened').length + "</small>" );
+  },
+  update_filter_counts: function($this, $filter_open, $filter_closed, $filter_resolved, $filter_reopened){
+    methods_sort_issues.update_filter_open_count($this, $filter_open);
+    methods_sort_issues.update_filter_closed_count($this, $filter_closed);
+    methods_sort_issues.update_filter_resolved_count($this, $filter_resolved);
+    methods_sort_issues.update_filter_reopened_count($this, $filter_reopened);
   }
 };
 
@@ -202,28 +222,28 @@ $.fn.sortIssues = function( options_or_method ){
     var $filter_by = $('<span class="buttongroup"></span>').html("Show: ");
 
     var $filter_open = $('<a href="#"></a>')
-      .html("open").addClass('selected')
+      .html("open").addClass('selected filter_open')
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.filter_open($this, $(this));
       });
     
     var $filter_closed = $('<a href="#"></a>')
-      .html("closed").addClass('selected')
+      .html("closed").addClass('selected filter_closed')
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.filter_closed($this, $(this));
       });
   
     var $filter_resolved = $('<a href="#"></a>')
-      .html("resolved").addClass('selected')
+      .html("resolved").addClass('selected filter_resolved')
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.filter_resolved($this, $(this));
       });
       
     var $filter_reopened = $('<a href="#"></a>')
-      .html("reopened").addClass('selected')
+      .html("reopened").addClass('selected filter_reopened')
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.filter_reopened($this, $(this));
@@ -232,6 +252,7 @@ $.fn.sortIssues = function( options_or_method ){
     // build sort menu
     $filter_by.append($filter_open, $filter_closed, $filter_resolved, $filter_reopened)
       .appendTo($menu);
+    methods_sort_issues.update_filter_counts($this, $filter_open, $filter_closed, $filter_resolved, $filter_reopened);
     
     $menu.insertBefore($this);
     methods_sort_issues.filter_closed($this, $filter_closed);
