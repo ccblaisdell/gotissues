@@ -26,13 +26,13 @@ function switchStatus (switcher, status) {
 }
 
 $(function(){
-  $('.status').click(function(e){
+  $('.status').live("click", function(e){
     e.preventDefault();
     e.stopPropagation();
     var $this = $(this);
     
     var status_index = STATES.indexOf($this.html());
-    status_index = status_index || 1;
+    status_index = (status_index < 0 || status_index == null) ? 0 : status_index;
     
     var next_status = status_index + 1 >= STATES.length ? 1 : status_index + 1;
     switchStatus($this, STATES[next_status]);
