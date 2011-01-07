@@ -36,7 +36,7 @@ span.comments {background-image: url(/images/bubble.gif);}
 
 /* show
 */
-.overview {padding: 10px; background:#fafafa; @include rounded; margin:10px 0 20px;}
+.overview {padding: 10px; background:rgba(0,0,0,0.05); @include rounded; margin:10px 0 20px;}
 .description {border: 1px solid #ddd; padding: 20px; margin: 20px 0;}
 
 /* sort and filter menus

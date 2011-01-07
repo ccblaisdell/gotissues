@@ -95,7 +95,7 @@ span.comments {
 */
 .overview {
   padding: 10px;
-  background: #fafafa;
+  background: rgba(0, 0, 0, 0.05);
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;

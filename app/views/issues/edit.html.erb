@@ -1,4 +1,5 @@
 <h1>Editing issue</h1>
+<%= breadcrumbs_for home_crumb, projects_crumb, project_crumb(@project), "Edit: #{@issue.name}" %>
 
 <%= render 'form' %>
 

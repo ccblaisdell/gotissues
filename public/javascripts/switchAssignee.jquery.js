@@ -21,7 +21,7 @@ var methods_switch_assignee = {
   show: function($this, $users){
     $('.assignee').switchAssignee('close');
     var link_position = $this.position();
-    $users.css({right: 45, top: link_position.top + $this.height() + 10});
+    $users.css({right: ($('body').width() - link_position.left - $this.width() + 65), top: link_position.top + $this.height() + 10});
     $users.show();
     $this.find('.switch_assignee').html(settings_switch_assignee.close_text);
   },
