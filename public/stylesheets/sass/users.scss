@@ -1,8 +1,14 @@
 @import "mixins";
 
-.assignee {font-size: 85%;}
+.assignee {
+  font-size: 85%;
+  &:hover {
+    cursor: pointer; background: #f4f4f4;
+  }
+}
 .switch_assignee {font-size: 85%; display: inline-block; margin-left: 3px; display: inline-block; padding:0 2px; text-decoration: none;}
-.change_assignee_list {position: absolute; background: #fff; padding: 5px; list-style: none; margin: 0; border: 5px solid #ddd; @include rounded;}
-.change_assignee_list .arrow {border:10px solid #000; border-color: transparent transparent #ddd; width: 1px; height: 1px; position: absolute; top:-30px; left: 10px;}
+.change_assignee_list {position: absolute; background: #fff; padding: 5px; list-style: none; margin: 0; border: 5px solid #ddd; @include rounded; @include box-shadow;}
+.change_assignee_list a {display: block;}
+.change_assignee_list .arrow, .issues .change_assignee_list .arrow {border:10px solid #000; border-width:0 5px 8px; border-color: transparent transparent #ddd; width: 1px; height: 1px; position: absolute; top:-18px; right: 13px;}
 
 .not_assigned {color: #900;}

@@ -15,15 +15,16 @@ var methods_switch_assignee = {
   
   hide: function($this, $users){
     $users.hide();
-    $this.nextAll('.switch_assignee').html(settings_switch_assignee.open_text);
+    $this.find('.switch_assignee').html(settings_switch_assignee.open_text);
   },
   
   show: function($this, $users){
-    var switcher = $this.next('.switch_assignee');
-    var link_position = switcher.position();
-    $users.css({left: link_position.left - 15, top: link_position.top + switcher.height() + 20});
-    $users.show();
-    $this.nextAll('.switch_assignee').html(settings_switch_assignee.close_text);
+    $('.assignee').switchAssignee('close');
+    var link_position = $this.position();
+    $users.css({right: 45, top: link_position.top + $this.height() + 8});
+    //$users.show();
+    $users.fadeIn(200);
+    $this.find('.switch_assignee').html(settings_switch_assignee.close_text);
   },
   
   close: function($this){
@@ -40,17 +41,15 @@ $.fn.switchAssignee = function( options_or_method ){
       $.extend(settings_switch_assignee, options_or_method);
     }
             
-    var $this = $(this);
+    var $this = $(this).click(function(e){
+                        e.preventDefault();
+                        methods_switch_assignee['toggle']($this);
+                      });
     
-    var $trigger = $('<a></a>')
-                     .html(settings_switch_assignee.open_text)
-                     .addClass('switch_assignee')
-                     .attr('href', '#')
-                     .click(function(e){
-                       e.preventDefault();
-                       methods_switch_assignee['toggle']($this);
-                     })
-                     .insertAfter($this);
+    var $trigger = $('<span/>')
+                    .html(settings_switch_assignee.open_text)
+                    .addClass('switch_assignee')
+                    .appendTo($this);
     
     var $users = $('<ul></ul>').addClass('users change_assignee_list').hide();
     var $arrow = $('<li></li>').addClass('arrow').appendTo($users);
@@ -74,6 +73,6 @@ $.fn.switchAssignee = function( options_or_method ){
     });
     
     // insert the list after the trigger
-    $users.insertAfter($trigger);
+    $users.insertAfter($this);
   });
 };

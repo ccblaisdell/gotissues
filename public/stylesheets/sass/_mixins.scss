@@ -3,3 +3,9 @@
   -webkit-border-radius: $radius;
           border-radius: $radius;
 }
+
+@mixin box-shadow($x-offset: 0, $y-offset: 2px, $blur: 4px, $color: rgba(0,0,0,0.5)){
+  -moz-box-shadow:    $x-offset $y-offset $blur $color;
+  -webkit-box-shadow: $x-offset $y-offset $blur $color;
+  box-shadow:         $x-offset $y-offset $blur $color;
+}

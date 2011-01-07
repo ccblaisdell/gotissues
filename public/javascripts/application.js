@@ -5,7 +5,7 @@ $(function(){
   // Add the close handler
   $(document).mousedown(function(event){
     var $target = $(event.target);
-    if (!$target.parents().andSelf().is('.change_assignee_list, .switch_assignee')) {
+    if (!$target.parents().andSelf().is('.change_assignee_list, .switch_assignee, .assignee')) {
       $('.assignee').switchAssignee('close');
     }
   })

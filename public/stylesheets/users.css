@@ -1,5 +1,8 @@
 .assignee {
   font-size: 85%; }
+  .assignee:hover {
+    cursor: pointer;
+    background: #f4f4f4; }
 
 .switch_assignee {
   font-size: 85%;
@@ -18,16 +21,23 @@
   border: 5px solid #ddd;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
 
-.change_assignee_list .arrow {
+.change_assignee_list a {
+  display: block; }
+
+.change_assignee_list .arrow, .issues .change_assignee_list .arrow {
   border: 10px solid #000;
+  border-width: 0 5px 8px;
   border-color: transparent transparent #ddd;
   width: 1px;
   height: 1px;
   position: absolute;
-  top: -30px;
-  left: 10px; }
+  top: -18px;
+  right: 13px; }
 
 .not_assigned {
   color: #900; }
