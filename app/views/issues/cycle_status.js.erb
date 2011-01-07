@@ -1,9 +1,2 @@
-// $('#issue_<%= @issue.id %>')
-//   .removeClass('<%= Issue.states.join(" ") %>')
-//   .addClass('<%= @issue.status %>')
-//   .attr('data-status', '<%= @issue.status %>')
-//   .attr('data-updated-at', '<%= @issue.updated_at.to_s %>')
-//   .find('.status')
-//     .html('<%= @issue.status %>')
-//     .removeClass()
-//     .addClass('status <%= @issue.status %>');
+$('#issue_<%= @issue.id %>')
+  .attr('data-updated-at', '<%= @issue.updated_at.to_s %>');

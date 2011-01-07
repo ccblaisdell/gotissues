@@ -8,8 +8,7 @@ function switchStatus (switcher, status) {
       .closest('.issue')
       .removeClass(STATES.join(" "))
       .addClass(status)
-      .attr('data-status', '<%= @issue.status %>')
-      .attr('data-updated-at', '<%= @issue.updated_at.to_s %>');
+      .attr('data-status', status);
       
   // fire off the ajax call
   $.ajax({
