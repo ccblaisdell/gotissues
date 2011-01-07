@@ -51,11 +51,25 @@
   background-color: #e8bf67;
   color: #fff; }
 
-.status.busy {
-  padding-left: 24px;
-  background-image: url(/images/busy.gif);
-  background-position: 5px 55%;
-  background-repeat: no-repeat; }
+.priority {
+  font-size: 10px;
+  padding: 1px 3px;
+  background: #f4f4f4;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  color: #aaa; }
+
+.normal {
+  display: none; }
+
+.high {
+  color: red; }
+
+.critical {
+  color: #fff;
+  background: red;
+  font-weight: bold; }
 
 .desc, span.comments, .images {
   padding-left: 13px;

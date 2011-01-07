@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101229044953) do
+ActiveRecord::Schema.define(:version => 20110107182542) do
 
   create_table "comments", :force => true do |t|
     t.text     "body"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20101229044953) do
     t.integer  "project_id"
     t.integer  "number"
     t.integer  "assignee_id"
+    t.integer  "priority",    :default => 1
   end
 
   add_index "issues", ["assignee_id"], :name => "index_issues_on_assignee_id"

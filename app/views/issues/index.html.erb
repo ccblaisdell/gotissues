@@ -22,7 +22,9 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
   
-  <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }), :include_blank => true %>
+  <%= select_tag "issue[assignee_id]", options_for_select([["no one",""]] + User.all.collect { |user| [user.name, user.id] }) %>
+  
+  <%= select_tag "issue[priority]", options_for_select(Issue.priorities.collect { |i| [i, Issue.priorities.index(i)] }, :selected => 1) %>
   
   <%= f.submit "Create" %>
 <% end %>

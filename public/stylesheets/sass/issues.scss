@@ -17,7 +17,13 @@
 .issues a.reopened, .issue a.reopened {background-color: #090; color: #fff;}
 .issues a.resolved, .issue a.resolved {background-color: #e8bf67; color: #fff;}
 
-.status.busy {padding-left:24px; background-image: url(/images/busy.gif); background-position: 5px 55%; background-repeat: no-repeat;}
+.priority {font-size: 10px; padding:1px 3px; background: #f4f4f4; @include rounded; color: #aaa;}
+.low {}
+.normal {display: none;}
+.high {color: red;}
+.critical {color: #fff; background: red; font-weight: bold;}
+
+.status.busy {}
 
 .desc, span.comments, .images {padding-left: 13px; background: url(/images/doc.gif) 0 3px no-repeat; font-size: 11px; color: #aaa;}
 .desc {}

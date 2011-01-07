@@ -20,19 +20,21 @@
     <%= f.text_area :description, :rows => 10 %>
   </div>
   
+  <div class="field">
+    <%= f.label :priority %><br />
+    <%= select_tag "issue[priority]", options_for_select(Issue.priorities.collect { |i| [i, Issue.priorities.index(i)] }, :selected => @issue.priority) %>
+  </div>
+  
   <% unless @issue.new_record? %>
     <div class="field">
       <%= f.label :status %>
       <%= f.select :status, Issue.states %>
-      
-      <%= f.label :assignee_id %>
-      <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }), :include_blank => true, :id => "issue_assignee_id"  %>
     </div>
   <% end %>
   
   <div class="actions">
     <label for="issue_assignee_id">Assigned to</label>
-    <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }), :include_blank => true %>
+    <%= select_tag "issue[assignee_id]", options_for_select(User.all.collect { |user| [user.name, user.id] }, :selected => @issue.assignee_id), :include_blank => true %>
     
     <%= f.submit %>
   </div>

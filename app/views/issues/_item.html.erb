@@ -1,8 +1,9 @@
-<li id="issue_<%= issue.id %>" class="<%= issue.status %> issue <%= "old_and_closed" if old_and_closed?(issue) %>" data-id="<%= issue.id %>" data-updated-at="<%= issue.updated_at.to_s %>" data-user-id="<%= issue.user.id %>" data-created-at="<%= issue.created_at %>" data-number="<%= issue.number %>" data-status="<%= issue.status %>" data-assignee-id="<%= issue.assignee.nil? ? -1 : issue.assignee.id %>"> 
+<li id="issue_<%= issue.id %>" class="<%= issue.status %> issue <%= "old_and_closed" if old_and_closed?(issue) %>" data-id="<%= issue.id %>" data-updated-at="<%= issue.updated_at.to_s %>" data-user-id="<%= issue.user.id %>" data-created-at="<%= issue.created_at %>" data-number="<%= issue.number %>" data-status="<%= issue.status %>" data-assignee-id="<%= issue.assignee.nil? ? -1 : issue.assignee.id %>" data-priority="<%= issue.priority %>"> 
   <%= link_to issue.status, cycle_status_path(@project, issue, :format => :js), :class => "status #{issue.status}", :remote => true %>
   <span class="issue_number">#<%= issue.number %></span>
   <%= link_to issue.name, project_issue_path(@project, issue) %>
   <span class="metadata">
+    <span class="priority <%= issue.priority_name %>"><%= issue.priority_name %></span>
     <% unless issue.description.nil? or issue.description.blank? %>
       <span class="desc"> </span>
     <% end %>
