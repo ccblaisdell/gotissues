@@ -4,6 +4,7 @@
   <p id="notice"><%= notice %></p>
 
   <h1>#<%= @issue.number %> <%= @issue.name %></h1>
+  <%= breadcrumbs_for home_crumb, projects_crumb, project_crumb(@project), @issue.name %>
 
   <div class="overview clearfix">
     <%= link_to @issue.status, cycle_status_path(@project, @issue, :format => :js), :class => "status #{@issue.status}", :remote => true %>
