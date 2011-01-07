@@ -1,3 +1,4 @@
 $('#issues').append("<%= escape_javascript(render :partial => "item", :locals => {:issue => @issue}) %>");
 $('#issue_name').select();
 $('#issue_description').val('');
+$('#issue_<%= @issue.id %> .assignee').switchAssignee();
