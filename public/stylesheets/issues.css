@@ -23,7 +23,7 @@
 .issues .status, .issue .status {
   display: inline-block;
   padding: 1px 3px;
-  background: #eee;
+  background-color: #eee;
   text-decoration: none; }
 
 .issues small {
@@ -37,19 +37,25 @@
   color: #bbb; }
 
 .issues a.open, .issue a.open {
-  background: #060;
+  background-color: #060;
   color: #fff; }
 
 .issues a.closed, .issue a.closed {
-  background: #fff; }
+  background-color: #fff; }
 
 .issues a.reopened, .issue a.reopened {
-  background: #090;
+  background-color: #090;
   color: #fff; }
 
 .issues a.resolved, .issue a.resolved {
-  background: #e8bf67;
+  background-color: #e8bf67;
   color: #fff; }
+
+.status.busy {
+  padding-left: 24px;
+  background-image: url(/images/busy.gif);
+  background-position: 5px 55%;
+  background-repeat: no-repeat; }
 
 .desc, .comments, .images {
   padding-left: 13px;
