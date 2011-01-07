@@ -84,6 +84,26 @@ var methods_sort_issues = {
     }
     methods_sort_issues.finished($this);
   },
+  sort_by_priority: function($this, $button){
+    methods_sort_issues.working($this);
+  
+    $button.parent('.buttongroup').find('.selected').removeClass('selected');
+    $button.addClass('selected');
+    
+    // determine sort order and sort the items
+    if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'asc') {
+      $button.attr('data-sort-order', 'desc');
+      $this.find('> li').sortElements(function(a,b){
+        return $(a).attr('data-priority') > $(b).attr('data-priority') ? -1 : 1;
+      });
+    } else {
+      $button.attr('data-sort-order', 'asc');
+      $this.find('> li').sortElements(function(a,b){
+        return $(a).attr('data-priority') > $(b).attr('data-priority') ? 1 : -1;
+      });
+    }
+    methods_sort_issues.finished($this);
+  },
   
   // filter functions
   filter_open: function($this, $button){
@@ -158,17 +178,24 @@ $.fn.sortIssues = function( options_or_method ){
         e.preventDefault();
         methods_sort_issues.sort_by_created_at($this, $(this));
       });  
-      
+            
     var $by_assigned_to = $('<a href="#"></a>')
       .html("assignee")
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.sort_by_assignee_id($this, $(this));
       });
+      
+    var $by_priority = $('<a href="#"></a>')
+      .html("priority")
+      .click(function(e){
+        e.preventDefault();
+        methods_sort_issues.sort_by_priority($this, $(this));
+      });
     
     
     // build sort menu
-    $sort_by.append($by_status, $by_updated_at, $by_created_at, $by_assigned_to)
+    $sort_by.append($by_status, $by_updated_at, $by_created_at, $by_assigned_to, $by_priority)
       .appendTo($menu);
       
     // filter menu

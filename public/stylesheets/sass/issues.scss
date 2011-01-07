@@ -6,7 +6,7 @@
 .issues li:nth-child(3n) {border-bottom: 1px solid #eee;}
 .issues li:nth-child(3n+1) {border-bottom: 1px solid #f4f4f4;}
 .issues li:nth-child(3n+2) {border-bottom: 1px solid #f4f4f4;}
-.issues .status, .issue .status {display: inline-block; padding:1px 3px; background-color: #eee; text-decoration: none;}
+.issues .status, .issue .status {display: inline-block; padding:0px 3px 1px; background-color: #eee; text-decoration: none; @include rounded;}
 .issues small {color: #aaa;}
 .issues .metadata {display: block; float: right;}
 
