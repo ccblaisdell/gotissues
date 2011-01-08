@@ -25,6 +25,9 @@
   
   <%= f.label :description %>
   <%= f.text_field :description %>
+    
+  <%= f.label :tag_list %>
+  <%= f.text_field :tag_list %>
   
   <%= select_tag "issue[assignee_id]", options_for_select([["no one",""]] + User.all.collect { |user| [user.name, user.id] }) %>
   

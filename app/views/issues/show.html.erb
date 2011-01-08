@@ -1,7 +1,5 @@
 <% page_title "##{@issue.number} #{@issue.name}" %>
 <div class="issue" id="issue_<%= @issue.id %>" data-id="<%= @issue.id %>">
-  
-  <p id="notice"><%= notice %></p>
 
   <h1>#<%= @issue.number %> <%= @issue.name %></h1>
   <%= breadcrumbs_for home_crumb, projects_crumb, project_crumb(@project), @issue.name %>

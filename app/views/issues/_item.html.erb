@@ -5,6 +5,11 @@
   <small><%= issue.user.name %></small>
   <span class="metadata">
     <span class="priority <%= issue.priority_name %>"><%= issue.priority_name %></span>
+    
+    <% if issue.tags %>
+      <span class="tags"><% for t in issue.tags %><span><%= t.name %></span><% end %></span>
+    <% end %>
+    
     <% unless issue.description.nil? or issue.description.blank? %>
       <span class="desc"> </span>
     <% end %>

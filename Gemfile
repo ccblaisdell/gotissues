@@ -14,7 +14,7 @@ gem 'rdiscount'
 gem 'carrierwave'
 gem "mini_magick"
 gem 'fog'
-
+gem 'acts-as-taggable-on'
 
 # Use unicorn as the web server
 # gem 'unicorn'

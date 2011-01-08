@@ -7,6 +7,7 @@ class Issue < ActiveRecord::Base
   belongs_to :assignee, :class_name => "User"
   has_many :comments
   has_many :images, :as => :imageable
+  acts_as_taggable
   
   STATES = ['open', 'resolved', 'closed', 'reopened']
   PRIORITIES = ['low', 'normal', 'high', 'critical']

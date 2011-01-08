@@ -21,7 +21,6 @@
   <div class="actions"> 
     <%= f.fields_for :images do |i| %>
       <%= i.file_field :image %>
-      <%= i.hidden_field :imageable_type, :value => "Common" %>
     <% end %>
      
     <%= f.submit %>
