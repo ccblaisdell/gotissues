@@ -5,6 +5,9 @@
   &:hover {
     cursor: pointer; background: #f4f4f4;
   }
+  &:after {
+    content: "\25BC"; font-size: 9px;
+  }
 }
 .switch_assignee {font-size: 85%; display: inline-block; margin-left: 3px; display: inline-block; padding:0 2px; text-decoration: none;}
 .change_assignee_list {position: absolute; background: #fff; padding: 5px; list-style: none; margin: 0; @include rounded; @include box-shadow(0, 0, 0, 5px, rgba(0,0,0,0.1));}

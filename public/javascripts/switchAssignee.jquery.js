@@ -15,7 +15,6 @@ var methods_switch_assignee = {
   
   hide: function($this, $users){
     $users.hide();
-    $this.find('.switch_assignee').html(settings_switch_assignee.open_text);
   },
   
   show: function($this, $users){
@@ -23,7 +22,6 @@ var methods_switch_assignee = {
     var link_position = $this.position();
     $users.css({right: ($('body').width() - link_position.left - $this.width() + 65), top: link_position.top + $this.height() + 10});
     $users.show();
-    $this.find('.switch_assignee').html(settings_switch_assignee.close_text);
   },
   
   close: function($this){
@@ -44,11 +42,6 @@ $.fn.switchAssignee = function( options_or_method ){
                         e.preventDefault();
                         methods_switch_assignee['toggle']($this);
                       });
-    
-    var $trigger = $('<span/>')
-                    .html(settings_switch_assignee.open_text)
-                    .addClass('switch_assignee')
-                    .appendTo($this);
     
     var $users = $('<ul></ul>').addClass('users change_assignee_list').hide();
     var $arrow = $('<li></li>').addClass('arrow').appendTo($users);

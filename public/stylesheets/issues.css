@@ -75,10 +75,13 @@
   font-weight: bold; }
 
 .desc, span.comments, .images {
-  padding-left: 13px;
-  background: url(/images/doc.gif) 0 3px no-repeat;
+  padding: 1px 3px 1px 16px;
+  background: rgba(0, 0, 0, 0.05) url(/images/doc.gif) 3px 3px no-repeat;
   font-size: 11px;
-  color: #aaa; }
+  color: #aaa;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px; }
 
 span.comments {
   background-image: url(/images/bubble.gif); }
@@ -108,6 +111,11 @@ span.comments {
 
 /* sort and filter menus
 */
+.menu {
+  text-shadow: 0 1px 0 #fff;
+  font-size: 12px;
+  color: #aaa; }
+
 .buttongroup {
   display: inline-block;
   margin-right: 10px;

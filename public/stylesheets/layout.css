@@ -1,6 +1,5 @@
 body {
-  padding: 0 40px;
-  background: white url(/images/bg.jpg) 50% 0 no-repeat; }
+  padding: 0 40px; }
 
 .delete, .delete:link, .delete:visited {
   display: inline-block;
