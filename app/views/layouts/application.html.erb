@@ -12,7 +12,14 @@
     <ul>
       <li><%= link_to "Home", root_url %></li>
       <% if user_signed_in? %>
-        <li><%= link_to "Projects", projects_path %></li>
+        <li>
+          <%= link_to "Projects", projects_path %>
+          <ul class="projects">
+            <% for project in Project.open %>
+              <li><%= link_to project.name, project_issues_path(project) %></li>
+            <% end %>
+          </ul>
+        </li>
         <li class="profile"><%= link_to (current_user.try(:name) or current_user.try(:email) or "mystery user"), edit_user_registration_path %></li>
         <li class="sign_out"><%= link_to "Sign out", destroy_user_session_url %></li>
       <% else %>
