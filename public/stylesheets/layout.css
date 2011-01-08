@@ -60,3 +60,12 @@ nav .profile, nav .sign_out, nav .sign_in, nav .register {
 
 #new_image {
   margin-bottom: 40px; }
+
+/* links in headers
+*/
+h1 small {
+  display: none;
+  font-size: 12px; }
+
+h1:hover small {
+  display: inline-block; }

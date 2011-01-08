@@ -15,6 +15,11 @@
   <%= @project.description %>
 </p>
 
+<p>
+  <b>Open:</b>
+  <%= @project.open %>
+</p>
+
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

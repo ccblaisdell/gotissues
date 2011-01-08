@@ -1,5 +1,8 @@
 <% page_title "#{@project.name} issues" %>
-<h1><%= @project.name %></h1>
+<h1>
+  <%= @project.name %>
+  <small><%= link_to "edit", edit_project_path(@project) %></small>
+</h1>
 <%= breadcrumbs_for home_crumb, projects_crumb, @project.name %>
 
 <ul class="issues project" id="issues" data-id="<%= @project.id %>">

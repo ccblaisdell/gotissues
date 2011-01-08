@@ -21,3 +21,8 @@ nav .profile, nav .sign_out, nav .sign_in, nav .register {float: right;}
 .image {@include box-shadow(0, 0, 0, 5px, rgba(0,0,0,0.1));}
 .comments .image {display: block; float: left; margin: -5px 20px 10px -5px;}
 #new_image {margin-bottom: 40px;}
+
+/* links in headers
+*/
+h1 small {display: none; font-size: 12px;}
+h1:hover small {display: inline-block;}
