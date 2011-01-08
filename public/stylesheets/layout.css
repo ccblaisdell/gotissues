@@ -45,3 +45,18 @@ nav .profile, nav .sign_out, nav .sign_in, nav .register {
 .breadcrumbs {
   font-size: 12px;
   margin: -10px 0 20px; }
+
+/* images
+*/
+.image {
+  -moz-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1); }
+
+.comments .image {
+  display: block;
+  float: left;
+  margin: -5px 20px 10px -5px; }
+
+#new_image {
+  margin-bottom: 40px; }

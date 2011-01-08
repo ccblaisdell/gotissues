@@ -8,9 +8,6 @@
   padding: 2px 0;
   clear: both; }
 
-.issues li:hover {
-  background-color: #f0fafe; }
-
 .issues li:nth-child(3n) {
   border-bottom: 1px solid #eee; }
 
@@ -93,7 +90,8 @@
   border-radius: 4px; }
 
 span.comments {
-  background-image: url(/images/bubble.gif); }
+  background-image: url(/images/bubble.gif);
+  border: 0; }
 
 .images {
   background-image: url(/images/polaroid.gif); }
@@ -106,17 +104,24 @@ span.comments {
 /* show
 */
 .overview {
-  padding: 10px;
-  background: rgba(0, 0, 0, 0.05);
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
   margin: 10px 0 20px; }
 
 .description {
-  border: 1px solid #ddd;
-  padding: 20px;
-  margin: 20px 0; }
+  margin: 20px 0;
+  border: 5px solid #ddd;
+  padding: 20px 20px 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  position: relative; }
+
+.description .arrow {
+  position: absolute;
+  top: -13px;
+  left: 10px;
+  border-style: solid;
+  border-color: transparent transparent #ddd;
+  border-width: 0 8px 8px; }
 
 /* sort and filter menus
 */

@@ -14,11 +14,16 @@
   <%= f.hidden_field :issue_id, :value => @issue.id %>
   
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label :body, "Leave a comment" %><br />
     <%= f.text_area :body, :rows => 5 %>
   </div>
   
-  <div class="actions">    
+  <div class="actions"> 
+    <%= f.fields_for :images do |i| %>
+      <%= i.file_field :image %>
+      <%= i.hidden_field :imageable_type, :value => "Common" %>
+    <% end %>
+     
     <%= f.submit %>
   </div>
 <% end %>

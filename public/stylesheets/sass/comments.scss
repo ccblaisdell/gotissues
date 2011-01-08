@@ -1,3 +1,7 @@
-.comments {list-style:none; margin:20px 0; padding: 0;}
-.comments > li {padding: 20px 0; border-top: 1px solid #ddd;}
-.comments > li > small:first-child {color: #999;}
+@import 'mixins';
+
+.comments {list-style:none; margin:20px 0 0; padding: 0; border: 10px solid #eee; @include rounded;}
+.comments > li {padding: 20px 20px 10px; border-bottom: 1px solid #ddd;}
+.comments > li > small {color: #999;}
+
+#new_comment {padding: 10px 20px 20px; background: #eee; @include rounded;}

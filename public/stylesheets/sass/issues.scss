@@ -27,7 +27,7 @@
 
 .desc, span.comments, .images {padding: 1px 3px 1px 16px; background: rgba(0,0,0,0.05) url(/images/doc.gif) 3px 3px no-repeat; font-size: 11px; color: #aaa; @include rounded;}
 .desc {}
-span.comments {background-image: url(/images/bubble.gif);}
+span.comments {background-image: url(/images/bubble.gif); border:0;}
 .images {background-image: url(/images/polaroid.gif);}
 
 /* new issue form
@@ -36,8 +36,10 @@ span.comments {background-image: url(/images/bubble.gif);}
 
 /* show
 */
-.overview {padding: 10px; background:rgba(0,0,0,0.05); @include rounded; margin:10px 0 20px;}
-.description {border: 1px solid #ddd; padding: 20px; margin: 20px 0;}
+.overview {margin:10px 0 20px;}
+.description {margin: 20px 0; border:5px solid #ddd; padding:20px 20px 0; @include rounded; position: relative;
+}
+.description .arrow {position: absolute; top: -13px; left: 10px; border-style: solid; border-color: transparent transparent #ddd; border-width: 0 8px 8px;}
 
 /* sort and filter menus
 */

@@ -1,4 +1,7 @@
 <li>
+  <% for image in comment.images %>
+    <%= link_to image_tag(image.image.url(:thumb)), image.image.url, :class => "image" %>
+  <% end %>
   <small><%= time_ago_in_words comment.created_at %> ago, <%= comment.user.name %> said</small>
   <%= markdown comment.body %>
 </li>

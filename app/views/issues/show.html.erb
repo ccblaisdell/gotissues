@@ -15,7 +15,9 @@
     </small>
   </div>
 
-  <div class="description"><%= markdown @issue.description %></div>
+  <% unless @issue.description.nil? or @issue.description.blank? %>
+    <div class="description"><%= markdown @issue.description %> <span class="arrow"></span></div>
+  <% end %>
   
   <% for image in @issue.images %>
     <%= link_to image_tag(image.image.url(:medium)), image.image.url %>

@@ -10,16 +10,13 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image, :multiple => true %>
-  </div>
   
   <%= f.hidden_field :imageable_id %>
   <%= f.hidden_field :imageable_type %>
   
   <div class="actions">
+    <%= f.label :image, "Add images to this issue" %><br />
+    <%= f.file_field :image, :multiple => true %>
     <%= f.submit %>
   </div>
 <% end %>
