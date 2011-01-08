@@ -2,6 +2,7 @@
   <%= link_to issue.status, cycle_status_path(@project, issue, :format => :js), :class => "status #{issue.status}" %>
   <span class="issue_number">#<%= issue.number %></span>
   <%= link_to issue.name, project_issue_path(@project, issue) %>
+  <small><%= issue.user.name %></small>
   <span class="metadata">
     <span class="priority <%= issue.priority_name %>"><%= issue.priority_name %></span>
     <% unless issue.description.nil? or issue.description.blank? %>

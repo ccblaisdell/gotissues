@@ -2,7 +2,7 @@
   font-size: 85%; }
   .assignee:hover {
     cursor: pointer;
-    background: #f4f4f4; }
+    text-decoration: underline; }
   .assignee:after {
     content: "\25BC";
     font-size: 9px; }

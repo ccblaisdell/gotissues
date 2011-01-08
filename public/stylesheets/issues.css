@@ -27,7 +27,9 @@
   text-decoration: none;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 5px; }
 
 .issues small {
   color: #aaa; }
@@ -35,6 +37,13 @@
 .issues .metadata {
   display: block;
   float: right; }
+
+.issues .issue_number {
+  display: inline-block;
+  margin-right: 5px;
+  color: #999;
+  font-family: Georgia, serif;
+  font-size: 12px; }
 
 .issues .closed, .issues .closed a, .issues .closed small, .issues .closed span {
   color: #bbb; }

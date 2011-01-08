@@ -3,7 +3,7 @@
 .assignee {
   font-size: 85%;
   &:hover {
-    cursor: pointer; background: #f4f4f4;
+    cursor: pointer; text-decoration: underline;
   }
   &:after {
     content: "\25BC"; font-size: 9px;
