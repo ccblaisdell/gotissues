@@ -9,3 +9,9 @@
   -webkit-box-shadow: $x-offset $y-offset $blur $choke $color;
   box-shadow:         $x-offset $y-offset $blur $choke $color;
 }
+
+@mixin box-sizing($type: "border-box") {
+	-moz-box-sizing: #{$type};
+	-webkit-box-sizing: #{$type};
+	box-sizing: #{$type};
+}
