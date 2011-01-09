@@ -87,11 +87,16 @@
   color: #aaa;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  display: inline-block; }
+
+.desc {
+  text-indent: -9999em; }
 
 span.comments {
   background-image: url(/images/bubble.gif);
-  border: 0; }
+  border: 0;
+  background-position: 3px 5px; }
 
 .images {
   background-image: url(/images/polaroid.gif); }

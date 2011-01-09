@@ -11,7 +11,7 @@
     <% end %>
     
     <% unless issue.description.nil? or issue.description.blank? %>
-      <span class="desc"> </span>
+      <span class="desc">description</span>
     <% end %>
     <% if issue.comments.length > 0 %>
       <span class="comments"><%= issue.comments.length %></span>

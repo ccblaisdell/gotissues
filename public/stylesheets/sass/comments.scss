@@ -1,6 +1,6 @@
 @import 'mixins';
 
-.comments {list-style:none; margin:20px 0 0; padding: 0; border: 10px solid #eee; @include rounded;}
+ul.comments {list-style:none; margin:20px 0 0; padding: 0; border: 10px solid #eee; @include rounded;}
 .comments > li {padding: 20px 20px 10px; border-bottom: 1px solid #ddd;}
 .comments > li > small {color: #999;}
 
