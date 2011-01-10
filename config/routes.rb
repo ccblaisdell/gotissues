@@ -1,7 +1,9 @@
 Gotissues::Application.routes.draw do
-  resources :images
+  devise_for :users
 
+  resources :images
   resources :comments
+  resources :users
 
   resources :projects do
     resources :issues do
@@ -11,7 +13,6 @@ Gotissues::Application.routes.draw do
 
   #resources :issues
 
-  devise_for :users
 
   get "home/index"
 

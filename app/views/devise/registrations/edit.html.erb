@@ -18,6 +18,11 @@
 
   <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></p>
+  
+  <% if resource.admin? %>
+    <p><%= f.check_box :admin %>
+      <%= f.label :admin, "Admin?" %></p>
+  <% end %>
 
   <p><%= f.submit "Update" %></p>
 <% end %>

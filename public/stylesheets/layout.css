@@ -54,6 +54,10 @@ nav a {
 nav li li {
   float: none; }
 
+nav li.projects > a:after {
+  content: " \25BC";
+  font-size: 9px; }
+
 nav ul ul a {
   color: #821e21;
   white-space: nowrap;

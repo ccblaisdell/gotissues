@@ -25,9 +25,9 @@
 
 .status.busy {}
 
-.desc, span.comments, .images {padding: 1px 3px 1px 16px; background: rgba(0,0,0,0.05) url(/images/doc.gif) 3px 3px no-repeat; font-size: 11px; color: #aaa; @include rounded; display: inline-block;}
-.desc {text-indent: -9999em;}
-span.comments {background-image: url(/images/bubble.gif); border:0; background-position: 3px 5px;}
+.desc, span.comments, .images {padding: 1px 3px 1px 16px; background: rgba(0,0,0,0.05) url(/images/doc.gif) 3px 5px no-repeat; font-size: 11px; color: #aaa; @include rounded; display: inline-block;}
+.desc {text-indent: -9999em; background-position: 3px 4px;}
+span.comments {background-image: url(/images/bubble.gif); border:0;}
 .images {background-image: url(/images/polaroid.gif);}
 
 /* new issue form
