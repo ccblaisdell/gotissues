@@ -29,6 +29,8 @@ Gotissues::Application.routes.draw do
   match '/projects/:project_id/issues/:id/cycle_status' => 'issues#cycle_status', :as => "cycle_status"
   match '/projects/:project_id/issues/:id/assign_to/(:user_id)' => 'issues#assign_to', :as => "assign_issue_to"
   match '/users/:id/tasks' => 'users#tasks', :as => "user_tasks"
+  match '/projects/:id/users' => 'projects#users', :as => "project_manage_users"
+  match '/projects/:id/users/update' => 'projects#update_users', :as => "project_update_users"
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

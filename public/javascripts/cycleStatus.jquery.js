@@ -9,19 +9,30 @@ function switchStatus (switcher, status) {
       .removeClass(STATES.join(" "))
       .addClass(status)
       .attr('data-status', status);
-      
-  // fire off the ajax call
-  $.ajax({
-    url: switcher.attr('href'),
-    beforeSend: function(){
-      switcher.addClass('busy');
-    },
-    complete: function(){
-      switcher.removeClass('busy');
-    },
-    error: function(){
-      switcher.html(original_status);
-    }
+  
+  // queue the ajax call
+  switcher.queue(function(next){
+    
+    // fire off the ajax call
+    $.ajax({
+      url: switcher.attr('href') + ".json",
+      dataTypeString: 'json',
+      beforeSend: function(){
+        switcher.parent('li').addClass('busy');
+      },
+      complete: function(){
+        switcher.parent('li').removeClass('busy');
+        next();
+      },
+      success: function(data){
+        switcher
+            .attr('data-updated-at', data.issue.updated_at);
+      },
+      error: function(){
+        switcher.html(original_status);
+      }
+    });
+    
   });
   
   var $list = switcher.closest('.issues');

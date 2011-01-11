@@ -10,6 +10,11 @@ class User < ActiveRecord::Base
   has_many :issues
   has_many :assignments, :class_name => "Issue", :foreign_key => "assignee_id"
   has_many :comments
+  has_and_belongs_to_many :projects
+  
+  def owns?(project)
+    self == project.owner
+  end
   
   protected
   

@@ -99,9 +99,10 @@ class IssuesController < ApplicationController
     
     respond_to do |format|
       if @issue.save
-        format.html { redirect_to(@issue, :notice => 'Issue was successfully updated.') }
+        format.html { redirect_to(project_issue_path(@project, @issue), :notice => 'Issue was successfully updated.') }
         format.xml  { head :ok }
         format.js
+        format.json {render :json => {:issue => {:updated_at => @issue.updated_at.to_s, :status => @issue.status}}.to_json}
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @issue.errors, :status => :unprocessable_entity }

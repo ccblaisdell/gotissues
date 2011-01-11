@@ -4,6 +4,7 @@
   <small><%= link_to "edit", edit_project_path(@project) %></small>
 </h1>
 <%= breadcrumbs_for home_crumb, projects_crumb, @project.name %>
+<%= link_to "manage users", project_manage_users_path(@project) %>
 
 <ul class="issues project" id="issues" data-id="<%= @project.id %>">
   <% @issues.each do |issue| %>
@@ -31,4 +32,4 @@
 
 <br />
 
-<%= link_to 'New Issue', new_project_issue_path(@project) %>
+<%= link_to 'New Issue', new_project_issue_path(@project) if current_user.admin? %>

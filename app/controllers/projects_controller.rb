@@ -85,4 +85,19 @@ class ProjectsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def users
+    @project = Project.find_by_slug(params[:id])
+  end
+  
+  def update_users
+    @project = Project.find_by_slug(params[:id])
+    
+    for u in params[:project][:users]
+      user = User.find(u)
+      @project.users << user
+    end
+    
+    redirect_to project_issues_path(@project), :notice => "Added users"
+  end
 end

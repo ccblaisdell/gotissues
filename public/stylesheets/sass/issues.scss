@@ -5,7 +5,8 @@
 .issues li:nth-child(3n) {border-bottom: 1px solid #eee;}
 .issues li:nth-child(3n+1) {border-bottom: 1px solid #f4f4f4;}
 .issues li:nth-child(3n+2) {border-bottom: 1px solid #f4f4f4;}
-.issues .status, .issue .status {display: inline-block; padding:0px 3px 1px; background-color: #eee; text-decoration: none; @include rounded; font-size: 12px; margin-right: 5px;}
+.issues li.busy {padding-left: 20px; margin-left: -20px; background-image: url(/images/busy.gif); background-position: 0 50%; background-repeat: no-repeat;}
+.issues .status, .issue .status {display: inline-block; padding:0px 3px 1px; background-color: #eee; text-decoration: none; @include rounded; font-size: 12px; margin-right: 5px; text-shadow: 0 1px 0 rgba(0,0,0,0.5);}
 .issues small {color: #aaa;}
 .issues .metadata {display: block; float: right;}
 .issues .issue_number {display: inline-block; margin-right: 5px; color: #999; font-family: Georgia, serif; font-size: 12px;}
@@ -13,7 +14,7 @@
 .issues .closed, .issues .closed a, .issues .closed small, .issues .closed span {color: #bbb;}
 
 .issues a.open    , .issue a.open     {background-color: #060; color: #fff;}
-.issues a.closed  , .issue a.closed   {background-color: #fff;}
+.issues a.closed  , .issue a.closed   {background-color: #fff; text-shadow: 0 0 0 transparent;}
 .issues a.reopened, .issue a.reopened {background-color: #090; color: #fff;}
 .issues a.resolved, .issue a.resolved {background-color: #e8bf67; color: #fff;}
 
@@ -39,7 +40,7 @@ span.comments {background-image: url(/images/bubble.gif); border:0;}
 #new_issue #issue_tag_list    {@include box-sizing; width: 20%; margin-right: 1%;}
 #new_issue #issue_assignee_id {@include box-sizing; width: 11%; margin-right: 1%;}
 #new_issue #issue_priority    {@include box-sizing; width: 11%; margin-right: 1%;}
-#new_issue #issue_submit      {@include box-sizing; width: 9%;}
+#new_issue #issue_submit      {@include box-sizing; width:  9%;}
 
 /* show
 */

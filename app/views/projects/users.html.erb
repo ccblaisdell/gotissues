@@ -1,0 +1,15 @@
+<h1>Manage users for <%= @project.name %></h1>
+<%= breadcrumbs_for home_crumb, projects_crumb, project_crumb(@project), "Users" %>
+
+<%= form_for(@project, :url => project_update_users_path(@project), :html => { :method => :put }) do |f| %>
+  <ul>
+    <% for user in User.all %>
+      <li>
+        <label>
+          checkbox goes here
+          <%= user.name %></label>
+      </li>
+    <% end %>
+  </ul>
+  <%= f.submit %>
+<% end %>
