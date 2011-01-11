@@ -1,14 +1,14 @@
 function switchStatus (switcher, status) {
   var original_status = switcher.html();
   
-  switcher
-    .html(status)
-    .removeClass()
-    .addClass('status ' + status)
-      .closest('.issue')
-      .removeClass(STATES.join(" "))
-      .addClass(status)
-      .attr('data-status', status);
+  // switcher
+  //   .html(status)
+  //   .removeClass()
+  //   .addClass('status ' + status)
+  //     .closest('.issue')
+  //     .removeClass(STATES.join(" "))
+  //     .addClass(status)
+  //     .attr('data-status', status);
   
   // queue the ajax call
   switcher.queue(function(next){
@@ -26,6 +26,13 @@ function switchStatus (switcher, status) {
       },
       success: function(data){
         switcher
+          .html(data.issue.status)
+          .removeClass()
+          .addClass('status ' + data.issue.status)
+            .closest('.issue')
+            .removeClass(STATES.join(" "))
+            .addClass(data.issue.status)
+            .attr('data-status', data.issue.status)
             .attr('data-updated-at', data.issue.updated_at);
       },
       error: function(){
