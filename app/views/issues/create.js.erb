@@ -1,4 +1,14 @@
 $('#issues').append("<%= escape_javascript(render :partial => "item", :locals => {:issue => @issue}) %>");
 $('#issue_name').select();
-$('#issue_description').val('');
+$('#issue_description').val( $('#issue_description').attr('placeholder') ).addClass('placeholder');
+$('#issue_tag_list').val( $('#issue_tag_list').attr('placeholder') ).addClass('placeholder');
 $('#issue_<%= @issue.id %> .assignee').switchAssignee();
+
+var $list = $('#issue_<%= @issue.id %> .assignee').closest('.issues');
+methods_sort_issues.update_filter_counts(
+  $list,
+  $list.prev().find('.filter_open'),
+  $list.prev().find('.filter_closed'),
+  $list.prev().find('.filter_resolved'),
+  $list.prev().find('.filter_reopened')
+);

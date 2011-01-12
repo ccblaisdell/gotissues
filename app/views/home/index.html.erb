@@ -1,6 +1,7 @@
 <h1>Got Issues</h1>
 
 <h2>Projects:</h2>
+<%= link_to 'New Project', new_project_path %>
 <ul>
   <% for project in @projects %>
     <%= render :partial => "projects/item", :locals => {:project => project} %>

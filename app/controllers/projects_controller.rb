@@ -6,8 +6,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.open
-    @closed = Project.closed
+    @projects = Project.open.accessible_by(current_user)
+    @closed = Project.closed.accessible_by(current_user)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -49,7 +49,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to(@project, :notice => 'Project was successfully created.') }
+        format.html { redirect_to(project_issues_path(@project), :notice => 'Project was successfully created.') }
         format.xml  { render :xml => @project, :status => :created, :location => @project }
       else
         format.html { render :action => "new" }
@@ -65,7 +65,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.update_attributes(params[:project])
-        format.html { redirect_to(@project, :notice => 'Project was successfully updated.') }
+        format.html { redirect_to(project_issues_path(@project), :notice => 'Project was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -92,12 +92,26 @@ class ProjectsController < ApplicationController
   
   def update_users
     @project = Project.find_by_slug(params[:id])
+    params[:project] ||= {}
+    params[:project][:users] ||= []
     
     for u in params[:project][:users]
       user = User.find(u)
       @project.users << user
     end
     
-    redirect_to project_issues_path(@project), :notice => "Added users"
+    for u in params[:project][:remove_users]
+      @project.users.delete(User.find(u)) unless params[:project][:users].include? u
+    end
+    
+    respond_to do |format|
+      if @project.save
+        format.html { redirect_to project_issues_path(@project), :notice => "Updated users" }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "users" }
+        format.xml  { render :xml => @project.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 end

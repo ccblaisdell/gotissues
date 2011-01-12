@@ -15,7 +15,7 @@
         <li class="projects">
           <%= link_to "Projects", projects_path %>
           <ul class="projects">
-            <% for project in Project.open %>
+            <% for project in Project.open.accessible_by(current_user) %>
               <li><%= link_to project.name, project_issues_path(project) %></li>
             <% end %>
           </ul>

@@ -195,7 +195,7 @@ $.fn.sortIssues = function( options_or_method ){
       });      
       
     var $by_created_at = $('<a href="#"></a>')
-      .html("created").addClass("selected")
+      .html("created").addClass("selected").attr('data-sort-order', "desc")
       .click(function(e){
         e.preventDefault();
         methods_sort_issues.sort_by_created_at($this, $(this));

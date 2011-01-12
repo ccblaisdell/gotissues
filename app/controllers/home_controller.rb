@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
     if current_user
-      @projects = Project.all
+      @projects = Project.accessible_by(current_user)
       @assignments = current_user.assignments
     else
       render :action => "visitors"

@@ -4,7 +4,6 @@
   <small><%= link_to "edit", edit_project_path(@project) %></small>
 </h1>
 <%= breadcrumbs_for home_crumb, projects_crumb, @project.name %>
-<%= link_to "manage users", project_manage_users_path(@project) %>
 
 <ul class="issues project" id="issues" data-id="<%= @project.id %>">
   <% @issues.each do |issue| %>
@@ -18,7 +17,7 @@
   })
 </script>
 
-<%= form_for([@project, @issue], :remote => true, :format => :js) do |f| %>
+<%= form_for([@project, @issue], :format => :js) do |f| %>
   <h2>new issue</h2>
   <%= f.text_field :name, :placeholder => "name" %>
   <%= f.text_field :description, :placeholder => "description" %>
@@ -32,4 +31,25 @@
 
 <br />
 
-<%= link_to 'New Issue', new_project_issue_path(@project) if current_user.admin? %>
+<%= link_to 'New Issue', new_project_issue_path(@project) %>
+| <%= link_to "Manage Users", project_manage_users_path(@project), :class => "manage_users" %>
+
+<script>
+  $(function(){
+    $("#new_issue").submit(function(e){
+      e.preventDefault();
+      var $this = $(this);
+      $.ajax({
+        type: "POST",
+        url: $this.attr("action"),
+        data: $this.serialize(),
+        beforeSend: function(){
+          $this.addClass("busy")
+        },
+        complete: function(){
+          $this.removeClass("busy")
+        }
+      })
+    })
+  })
+</script>

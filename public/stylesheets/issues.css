@@ -118,6 +118,11 @@ span.comments {
   background: #f4f4f4;
   border-top: 1px solid #ddd; }
 
+#new_issue.busy {
+  background-image: url(/images/busy.gif);
+  background-repeat: no-repeat;
+  background-position: 99% 50%; }
+
 #new_issue h2 {
   margin-bottom: 0;
   font-size: 18px;
@@ -148,14 +153,14 @@ span.comments {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 11%;
+  width: 10%;
   margin-right: 1%; }
 
 #new_issue #issue_priority {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 11%;
+  width: 10%;
   margin-right: 1%; }
 
 #new_issue #issue_submit {

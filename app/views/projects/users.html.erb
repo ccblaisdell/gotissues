@@ -2,13 +2,16 @@
 <%= breadcrumbs_for home_crumb, projects_crumb, project_crumb(@project), "Users" %>
 
 <%= form_for(@project, :url => project_update_users_path(@project), :html => { :method => :put }) do |f| %>
+<p>Give these users access to this project:</p>
   <ul>
     <% for user in User.all %>
-      <li>
-        <label>
-          checkbox goes here
-          <%= user.name %></label>
-      </li>
+      <% unless user == current_user %>
+        <li>
+          <%= hidden_field_tag "project[remove_users][]", user.id %>
+          <label><%= check_box_tag    "project[users][]", user.id, @project.users.include?(user) %>
+            <%= user.name %></label>
+        </li>
+      <% end %>
     <% end %>
   </ul>
   <%= f.submit %>

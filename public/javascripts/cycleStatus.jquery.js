@@ -1,15 +1,6 @@
 function switchStatus (switcher, status) {
   var original_status = switcher.html();
   
-  // switcher
-  //   .html(status)
-  //   .removeClass()
-  //   .addClass('status ' + status)
-  //     .closest('.issue')
-  //     .removeClass(STATES.join(" "))
-  //     .addClass(status)
-  //     .attr('data-status', status);
-  
   // queue the ajax call
   switcher.queue(function(next){
     
@@ -34,6 +25,16 @@ function switchStatus (switcher, status) {
             .addClass(data.issue.status)
             .attr('data-status', data.issue.status)
             .attr('data-updated-at', data.issue.updated_at);
+        
+        // updated the filter counts
+        var $list = switcher.closest('.issues');
+        methods_sort_issues.update_filter_counts(
+          $list,
+          $list.prev().find('.filter_open'),
+          $list.prev().find('.filter_closed'),
+          $list.prev().find('.filter_resolved'),
+          $list.prev().find('.filter_reopened')
+        );
       },
       error: function(){
         switcher.html(original_status);
@@ -41,15 +42,6 @@ function switchStatus (switcher, status) {
     });
     
   });
-  
-  var $list = switcher.closest('.issues');
-  methods_sort_issues.update_filter_counts(
-    $list,
-    $list.prev().find('.filter_open'),
-    $list.prev().find('.filter_closed'),
-    $list.prev().find('.filter_resolved'),
-    $list.prev().find('.filter_reopened')
-  );
 }
 
 $(function(){
