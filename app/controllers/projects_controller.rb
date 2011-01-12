@@ -6,8 +6,8 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.xml
   def index
-    @projects = Project.open.accessible_by(current_user)
-    @closed = Project.closed.accessible_by(current_user)
+    @projects = current_user.admin? ? Project.open : Project.open.accessible_by(current_user)
+    @closed   = current_user.admin? ? Project.closed : Project.closed.accessible_by(current_user)
 
     respond_to do |format|
       format.html # index.html.erb
