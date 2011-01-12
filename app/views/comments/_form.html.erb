@@ -11,7 +11,7 @@
     </div>
   <% end %>
   
-  <%= f.hidden_field :issue_id, :value => @issue.id %>
+  <%= f.hidden_field :issue_id, :value => @issue.id if @issue %>
   
   <div class="field">
     <%= f.label :body, "Leave a comment" %><br />
@@ -19,10 +19,9 @@
   </div>
   
   <div class="actions"> 
+    <%= f.submit %>
     <%= f.fields_for :images do |i| %>
       <%= i.file_field :image %>
     <% end %>
-     
-    <%= f.submit %>
   </div>
 <% end %>

@@ -1,7 +1,12 @@
-<li>
+<li id="comment_<%= comment.id %>">
   <% for image in comment.images %>
     <%= link_to image_tag(image.image.url(:thumb)), image.image.url, :class => "image" %>
   <% end %>
+  <div class="actions">
+    <%= link_to "permalink", project_issue_url(@project, @issue, :anchor => "comment_#{comment.id}"), :class => "permalink" %>
+    <%= link_to "edit", edit_comment_path(comment) if current_user.can_edit?(comment) %>
+    <%= link_to "×", comment_path(comment), :method => :delete, :class => "delete", :confirm => "This can't be undone. Do you want to delete this comment?" if current_user.can_edit?(comment) %>
+  </div>
   <small><%= time_ago_in_words comment.created_at %> ago, <%= comment.user.name %> said</small>
   <%= markdown comment.body %>
 </li>

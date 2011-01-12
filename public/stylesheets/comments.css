@@ -20,3 +20,20 @@ ul.comments {
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px; }
+
+.comments .actions {
+  float: right;
+  font-size: 12px;
+  display: none; }
+
+.comments li:hover .actions {
+  display: block; }
+
+.comments .actions a {
+  color: #aaa; }
+
+.comments .actions a:hover {
+  color: #666; }
+
+.comments .actions .delete:hover {
+  color: #fff; }

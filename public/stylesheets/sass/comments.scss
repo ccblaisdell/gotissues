@@ -5,3 +5,9 @@ ul.comments {list-style:none; margin:20px 0 0; padding: 0; border: 10px solid #e
 .comments > li > small {color: #999;}
 
 #new_comment {padding: 10px 20px 20px; background: #eee; @include rounded;}
+
+.comments .actions {float: right; font-size: 12px; display: none;}
+.comments li:hover .actions {display: block;}
+.comments .actions a {color: #aaa;}
+.comments .actions a:hover {color: #666;}
+.comments .actions .delete:hover {color: #fff;}

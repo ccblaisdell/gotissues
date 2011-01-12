@@ -16,6 +16,17 @@ class User < ActiveRecord::Base
     self == project.owner
   end
   
+  def can_edit?(item)
+    return true if self.admin?
+    
+    case item.class
+    when Comment
+      return (self == item.user or self == item.issue.project.owner)
+    else
+      false
+    end
+  end
+  
   protected
   
   def password_required?

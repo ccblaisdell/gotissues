@@ -61,7 +61,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to(@comment, :notice => 'Comment was successfully updated.') }
+        format.html {  redirect_to(project_issue_path(@comment.issue.project, @comment.issue), :notice => 'Comment was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -74,10 +74,11 @@ class CommentsController < ApplicationController
   # DELETE /comments/1.xml
   def destroy
     @comment = Comment.find(params[:id])
+    c = @comment
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(comments_url) }
+      format.html {  redirect_to(project_issue_path(c.issue.project, c.issue), :notice => 'Comment was successfully deleted.') }
       format.xml  { head :ok }
     end
   end
