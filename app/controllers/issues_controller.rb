@@ -48,8 +48,11 @@ class IssuesController < ApplicationController
   # POST /issues.xml
   def create
     
-    params[:issue].merge!({:project_id => @project.id, :user => current_user, :number => assign_number})
+    # params[:issue].merge!({:project_id => @project.id, :user => current_user, :number => assign_number})
     @issue = Issue.new(params[:issue])
+    @issue.project = @project
+    @issue.user = current_user
+    @issue.number = assign_number
     
     respond_to do |format|
       if @issue.save
