@@ -202,7 +202,7 @@ optgroup {
 * html select {
   margin-top: 1px; }
 
-.placeholder_text,
+.placeholder,
 .ie6_input_disabled,
 .ie6_button_disabled {
   color: #888; }
