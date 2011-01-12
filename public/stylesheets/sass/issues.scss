@@ -123,9 +123,7 @@ border-right: 0;
 /* issues nav
 */
 .issue_nav {font-size: 10px; color: #aaa;}
-.issue_nav a {font-size: 12px; display: inline-block; background: #eee; padding: 2px 10px 2px 5px; position: relative;
-  
-}
+.issue_nav a {font-size: 12px; display: inline-block; background: #eee; padding: 2px 10px 2px 5px; position: relative;}
 .issue_nav .previous:before{
   content: '';
 	position:absolute;

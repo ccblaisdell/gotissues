@@ -13,15 +13,15 @@ var methods_sort_issues = {
     $button.addClass('selected');
     
     // determine sort order and sort the items
-    if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'asc') {
-      $button.attr('data-sort-order', 'desc');
-      $this.find('> li').sortElements(function(a,b){
-        return $(a).find('.status').first().html() > $(b).find('.status').first().html() ? -1 : 1;
-      });
-    } else {
+    if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'desc') {
       $button.attr('data-sort-order', 'asc');
       $this.find('> li').sortElements(function(a,b){
         return $(a).find('.status').first().html() > $(b).find('.status').first().html() ? 1 : -1;
+      });
+    } else {  // desc is default
+      $button.attr('data-sort-order', 'desc');
+      $this.find('> li').sortElements(function(a,b){
+        return $(a).find('.status').first().html() > $(b).find('.status').first().html() ? -1 : 1;
       });
     }
     methods_sort_issues.finished($this);
@@ -38,7 +38,7 @@ var methods_sort_issues = {
       $this.find('> li').sortElements(function(a,b){
         return $(a).attr('data-updated-at') > $(b).attr('data-updated-at') ? 1 : -1;
       });
-    } else {
+    } else { // asc is default
       $button.attr('data-sort-order', 'asc');
       $this.find('> li').sortElements(function(a,b){
         return $(a).attr('data-updated-at') > $(b).attr('data-updated-at') ? -1 : 1;
@@ -54,14 +54,14 @@ var methods_sort_issues = {
     
     // determine sort order and sort the items
     if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'asc') {
-      $button.attr('data-sort-order', 'desc');
-      $this.find('> li').sortElements(function(a,b){
-        return $(a).attr('data-created-at') > $(b).attr('data-created-at') ? 1 : -1;
-      });
-    } else {
       $button.attr('data-sort-order', 'asc');
       $this.find('> li').sortElements(function(a,b){
         return $(a).attr('data-created-at') > $(b).attr('data-created-at') ? -1 : 1;
+      });
+    } else { //desc is default
+      $button.attr('data-sort-order', 'desc');
+      $this.find('> li').sortElements(function(a,b){
+        return $(a).attr('data-created-at') > $(b).attr('data-created-at') ? 1 : -1;
       });
     }
     methods_sort_issues.finished($this);
@@ -74,14 +74,14 @@ var methods_sort_issues = {
     
     // determine sort order and sort the items
     if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'asc') {
-      $button.attr('data-sort-order', 'desc');
-      $this.find('> li').sortElements(function(a,b){
-        return $(a).attr('data-assignee-id') > $(b).attr('data-assignee-id') ? -1 : 1;
-      });
-    } else {
       $button.attr('data-sort-order', 'asc');
       $this.find('> li').sortElements(function(a,b){
         return $(a).attr('data-assignee-id') > $(b).attr('data-assignee-id') ? 1 : -1;
+      });
+    } else { // desc is default
+      $button.attr('data-sort-order', 'desc');
+      $this.find('> li').sortElements(function(a,b){
+        return $(a).attr('data-assignee-id') > $(b).attr('data-assignee-id') ? -1 : 1;
       });
     }
     methods_sort_issues.finished($this);
@@ -94,14 +94,14 @@ var methods_sort_issues = {
     
     // determine sort order and sort the items
     if ($button.attr('data-sort-order') && $button.attr('data-sort-order') == 'asc') {
-      $button.attr('data-sort-order', 'desc');
-      $this.find('> li').sortElements(function(a,b){
-        return $(a).attr('data-priority') > $(b).attr('data-priority') ? -1 : 1;
-      });
-    } else {
       $button.attr('data-sort-order', 'asc');
       $this.find('> li').sortElements(function(a,b){
         return $(a).attr('data-priority') > $(b).attr('data-priority') ? 1 : -1;
+      });
+    } else { // desc is default
+      $button.attr('data-sort-order', 'desc');
+      $this.find('> li').sortElements(function(a,b){
+        return $(a).attr('data-priority') > $(b).attr('data-priority') ? -1 : 1;
       });
     }
     methods_sort_issues.finished($this);
