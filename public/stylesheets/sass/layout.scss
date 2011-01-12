@@ -6,7 +6,7 @@ body {padding: 0 40px;}
 .delete, .delete:link, .delete:visited {display: inline-block; text-decoration: none; line-height: 1; padding:0 4px 2px; color: #aaa; font-weight: bold;} 
 .delete:hover, .delete:active {background: #900; color: #fff;}
 
-nav {margin: 0 0 40px; padding:0 10px; background: #821e21;}
+nav {margin: 0; padding:0 10px; background: #821e21;}
 nav ul {list-style:none; margin:0; padding: 0; font-size: 12px;}
 nav li {float: left; padding:10px 10px; position: relative;}
 nav ul ul {position: absolute; top: 3em; left:0; background: #fff; display: none; @include box-shadow(0,0,0,5px,rgba(0,0,0,0.1));}
@@ -31,3 +31,10 @@ nav .profile, nav .sign_out, nav .sign_in, nav .register {float: right;}
 */
 h1 small {display: none; font-size: 12px;}
 h1:hover small {display: inline-block;}
+
+/* flashes
+*/
+#flashes {margin-bottom: 40px;}
+#flashes div {padding: 5px 20px; border-bottom:1px solid #ccc; background: #f4f4f4; margin: 10px 0;}
+#flashes .notice {}
+#flashes .alert {background: #ffc;}

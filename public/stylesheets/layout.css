@@ -14,7 +14,7 @@ body {
   color: #fff; }
 
 nav {
-  margin: 0 0 40px;
+  margin: 0;
   padding: 0 10px;
   background: #821e21; }
 
@@ -97,3 +97,17 @@ h1 small {
 
 h1:hover small {
   display: inline-block; }
+
+/* flashes
+*/
+#flashes {
+  margin-bottom: 40px; }
+
+#flashes div {
+  padding: 5px 20px;
+  border-bottom: 1px solid #ccc;
+  background: #f4f4f4;
+  margin: 10px 0; }
+
+#flashes .alert {
+  background: #ffc; }
