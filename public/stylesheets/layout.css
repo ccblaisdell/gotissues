@@ -13,23 +13,23 @@ body {
   background: #900;
   color: #fff; }
 
-nav {
+#nav {
   margin: 0;
   padding: 0 10px;
   background: #821e21; }
 
-nav ul {
+#nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   font-size: 12px; }
 
-nav li {
+#nav li {
   float: left;
   padding: 10px 10px;
   position: relative; }
 
-nav ul ul {
+#nav ul ul {
   position: absolute;
   top: 3em;
   left: 0;
@@ -39,10 +39,10 @@ nav ul ul {
   -webkit-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1); }
 
-nav li:hover ul {
+#nav li:hover ul {
   display: block; }
 
-nav a {
+#nav a {
   display: block;
   float: left;
   padding: 10px 10px;
@@ -51,21 +51,21 @@ nav a {
   font-weight: bold;
   text-decoration: none; }
 
-nav li li {
+#nav li li {
   float: none; }
 
-nav li.projects > a:after {
+#nav li.projects > a:after {
   content: " \25BC";
   font-size: 9px; }
 
-nav ul ul a {
+#nav ul ul a {
   color: #821e21;
   white-space: nowrap;
   border-bottom: 1px solid #ddd;
   display: block;
   float: none; }
 
-nav .profile, nav .sign_out, nav .sign_in, nav .register {
+#nav .profile, #nav .sign_out, #nav .sign_in, #nav .register {
   float: right; }
 
 /* breadcrumbs

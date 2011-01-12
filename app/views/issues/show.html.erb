@@ -22,6 +22,8 @@
   <% end %>
   <% @image = Image.new(:imageable_id => @issue.id, :imageable_type => "Issue") %>
   <%= render :partial => "images/form" %>
+  
+  <%= render :partial => "subnav" %>
 
   <h2>Comments</h2>
 
