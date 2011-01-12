@@ -201,7 +201,10 @@ optgroup {
 
 .ie6_button,
 * html button {
-	background: #ddd url(/images/button.png) repeat-x;
+  
+  background-image: -moz-linear-gradient(top, #fff, #ddd); /* FF3.6 */
+  background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fff),color-stop(1, #ddd));
+  
 	border: 1px solid;
 	border-color: #ddd #bbb #999;
 	cursor: pointer;
