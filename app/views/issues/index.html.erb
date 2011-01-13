@@ -16,7 +16,10 @@
 <script>
   $(function(){
     var qs = $('#search_issues').quicksearch("#issues > li", {
-      selector: ".name"
+      selector: ".name",
+      onBefore: function(){
+        $('#issues').sortIssues("showAll");
+      }
     });
     $('#issues').sortIssues();
   })

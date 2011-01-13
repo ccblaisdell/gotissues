@@ -110,31 +110,63 @@ var methods_sort_issues = {
   // filter functions
   filter_open: function($this, $button){
     methods_sort_issues.working($this);
-  
-    $button.toggleClass('selected');
-    $this.find('> .open').toggle();
+    
+    if ($button.hasClass('selected')) {
+      $button.removeClass('selected');
+      $this.find('> .open').hide()
+    } else {
+      $button.addClass('selected');
+      $this.find('> .open').show()
+    }
+    
     methods_sort_issues.finished($this);
   },
   filter_closed: function($this, $button){
     methods_sort_issues.working($this);
   
-    $button.toggleClass('selected');
-    $this.find('> .closed').toggle();
+    if ($button.hasClass('selected')) {
+      $button.removeClass('selected');
+      $this.find('> .closed').hide()
+    } else {
+      $button.addClass('selected');
+      $this.find('> .closed').show()
+    }
+    
     methods_sort_issues.finished($this);
   },
   filter_resolved: function($this, $button){
     methods_sort_issues.working($this);
   
-    $button.toggleClass('selected');
-    $this.find('> .resolved').toggle();
+    if ($button.hasClass('selected')) {
+      $button.removeClass('selected');
+      $this.find('> .resolved').hide()
+    } else {
+      $button.addClass('selected');
+      $this.find('> .resolved').show()
+    }
+    
     methods_sort_issues.finished($this);
   },
   filter_reopened: function($this, $button){
     methods_sort_issues.working($this);
   
-    $button.toggleClass('selected');
-    $this.find('> .reopened').toggle();
+    if ($button.hasClass('selected')) {
+      $button.removeClass('selected');
+      $this.find('> .reopened').hide()
+    } else {
+      $button.addClass('selected');
+      $this.find('> .reopened').show()
+    }
+    
     methods_sort_issues.finished($this);
+  },
+  showAll: function(){
+    var $menu = $(this).prev(".menu"); console.log($menu);
+    
+    $menu.find(".filter_open").addClass("selected");
+    $menu.find(".filter_closed").addClass("selected");
+    $menu.find(".filter_resolved").addClass("selected");
+    $menu.find(".filter_reopened").addClass("selected");
   },
   
   // busy and not busy
