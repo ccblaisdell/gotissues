@@ -5,6 +5,8 @@
 </h1>
 <%= breadcrumbs_for home_crumb, projects_crumb, @project.name %>
 
+<%= text_field_tag "search_issues", nil, :placeholder => "search issue names..." %>
+
 <ul class="issues project" id="issues" data-id="<%= @project.id %>">
   <% @issues.each do |issue| %>
     <%= render :partial => "item", :locals => {:issue => issue} %>
@@ -13,6 +15,9 @@
 
 <script>
   $(function(){
+    var qs = $('#search_issues').quicksearch("#issues > li", {
+      selector: ".name"
+    });
     $('#issues').sortIssues();
   })
 </script>
