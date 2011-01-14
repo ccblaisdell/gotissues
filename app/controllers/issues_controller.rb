@@ -50,6 +50,7 @@ class IssuesController < ApplicationController
     
     # params[:issue].merge!({:project_id => @project.id, :user => current_user, :number => assign_number})
     @issue = Issue.new(params[:issue])
+    @issue.assignee = User.find params[:issue][:assignee_id]
     @issue.project = @project
     @issue.user = current_user
     @issue.number = assign_number

@@ -21,7 +21,7 @@
   padding-left: 20px;
   margin-left: -20px;
   background-image: url(/images/busy.gif);
-  background-position: 0 0;
+  background-position: 0 6px;
   background-repeat: no-repeat; }
 
 .issues .status, .issue .status {
