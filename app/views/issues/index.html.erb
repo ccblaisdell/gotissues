@@ -6,16 +6,10 @@
 <%= breadcrumbs_for home_crumb, projects_crumb, @project.name %>
 
 <ul class="issues project" id="issues" data-id="<%= @project.id %>">
-  <% @issues.each do |issue| %>
+  <% for issue in @project.issues %>
     <%= render :partial => "item", :locals => {:issue => issue} %>
   <% end %>
 </ul>
-
-<script>
-  $(function(){
-    $('#issues').sortIssues();
-  })
-</script>
 
 <%= form_for([@project, @issue], :format => :js) do |f| %>
   <h2>new issue</h2>

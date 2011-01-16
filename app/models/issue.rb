@@ -38,4 +38,22 @@ class Issue < ActiveRecord::Base
     
     status = STATES[next_status]
   end
+  
+  def created_at_json
+    self.created_at.to_s
+  end
+  def updated_at_json
+    self.updated_at.to_s
+  end
+  
+  def to_json
+    super(
+      :methods => [:priority_name, :created_at_json, :updated_at_json],
+      :include => {
+        :user => {:only => [:id, :name]},
+        :assignee => {:only => [:id, :name]},
+        :comments => {:only => [:id]}
+      }
+    )
+  end
 end

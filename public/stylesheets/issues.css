@@ -34,7 +34,8 @@
   border-radius: 4px;
   font-size: 12px;
   margin-right: 5px;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5); }
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+  cursor: pointer; }
 
 .issues small {
   color: #aaa; }
@@ -50,22 +51,22 @@
   font-family: Georgia, serif;
   font-size: 12px; }
 
-.issues .closed, .issues .closed a, .issues .closed small, .issues .closed span {
+.issues .closed, .issues .closed .status, .issues .closed small, .issues .closed span {
   color: #bbb; }
 
-.issues a.open, .issue a.open {
+.issues .status.open, .issue .status.open {
   background-color: #060;
   color: #fff; }
 
-.issues a.closed, .issue a.closed {
+.issues .status.closed, .issue .status.closed {
   background-color: #fff;
   text-shadow: 0 0 0 transparent; }
 
-.issues a.reopened, .issue a.reopened {
+.issues .status.reopened, .issue .status.reopened {
   background-color: #090;
   color: #fff; }
 
-.issues a.resolved, .issue a.resolved {
+.issues .status.resolved, .issue .status.resolved {
   background-color: #e8bf67;
   color: #fff; }
 
