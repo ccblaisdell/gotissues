@@ -9,18 +9,12 @@ $(function(){
     // the App already present in the HTML.
     el: $("#issues_app"),
     showingClosed: true,
+    firstRender: true,
 
     // Our template for the line of statistics at the bottom of the app.
     // statsTemplate: _.template($('#stats-template').html()),
-
-    // Delegated events for creating new items, and clearing completed ones.
-    // events: {
-    //   "keypress #new-todo":  "createOnEnter",
-    //   "keyup #new-todo":     "showTooltip",
-    //   "click .todo-clear a": "clearCompleted"
-    // },
     
-    // Events for new issues
+    // Events
     events: {
       "submit #new_issue": "newIssue",
       "click #filter_closed": "toggleClosed"
@@ -60,7 +54,11 @@ $(function(){
       // }));
       
       // start with all closed issues hidden
-      // this.hideClosed();
+      // this.hideClosed(); // This will hide closed on every re-render
+      if (this.firstRender) {
+        this.hideClosed();
+        this.firstRender = false;
+      }
     },
 
     // Add a single todo item to the list by creating a view for it, and
@@ -124,7 +122,6 @@ $(function(){
     
     toggleClosed: function(e) {
       e.preventDefault();
-      console.log("toggleClosed");
       if (this.showingClosed) {
         this.hideClosed();
       } else {

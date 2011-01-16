@@ -27,7 +27,13 @@ $(function(){
 
     // Re-render the contents of the todo item.
     render: function() {
-      $(this.el).html(this.template(this.model.toJSON()));
+      var view = this;
+      $(this.el).html(this.template( _.extend(this.model.toJSON(), {
+        hasDescription: function(){
+          return view.model.get("description") ? true : false;
+        },
+        commentsLength: view.model.get("comments").length
+      }) ));
       return this;
     },
 

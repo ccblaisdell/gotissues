@@ -84,24 +84,26 @@
     <span class="status {{status}}">{{status}}</span>
     <span class="issue_number">#{{number}}</span>
     <span class="name">{{name}}</span>
+    <small>{{#user}}{{name}}{{/user}}</small>
     <span class="metadata">
-      {{#(if priority_name)}}
-        <span class="priority {{issue.priority_name}}">{{issue.priority_name}}</span>
-      {{/(if priority_name)}}
-      
-      {{#(if description && description != "")}}
+
+      <span class="priority {{priority_name}}">{{priority_name}}</span>
+
+      {{#hasDescription}}
         <span class="desc">{{description}}</span>
-      {{/(if description && description != "")}}
+      {{/hasDescription}}
       
-      {{#(if comments && comments.length > 0)}}
-        <span class="comments">{{comments.length}}</span>
-      {{/(if comments && comments.length > 0)}}
+      {{#commentsLength}}
+        <span class="comments">{{commentsLength}}</span>
+      {{/commentsLength}}
       
       <small class="age">{{updated_at_json}}</small>
+
+      {{#assignee}}
+        <span class="assignee">{{name}}</span>
+      {{/assignee}}
       
-      <span class="assignee">{{assignee}}</span>
-      
-      <%= link_to "×", "#", :method => :delete, :class => "delete", :remote => true, :confirm => "This can't be undone. Do you want to delete this issue?" %>
+      <%= link_to "×", "#", :method => :delete, :class => "delete", :confirm => "This can't be undone. Do you want to delete this issue?" %>
     </span>
   </div>
 </script>
