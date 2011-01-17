@@ -96,7 +96,7 @@ class IssuesController < ApplicationController
     @issue.destroy
 
     respond_to do |format|
-      format.html { redirect_to(project_issues_url(@project)) }
+      format.html { head :ok }
       format.xml  { head :ok }
       format.js
       format.json { head :ok }

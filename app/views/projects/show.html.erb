@@ -45,7 +45,7 @@
     $(function(){
       
       Issues.refresh(<%= @project.issues.order("created_at ASC").to_json(
-          :methods => [:priority_name, :created_at_json, :updated_at_json],
+          :methods => [:priority_name, :created_at_in_words, :updated_at_in_words],
           :include => {
             :user => {:only => [:id, :name]},
             :assignee => {:only => [:id, :name]},
@@ -80,7 +80,7 @@
 <!-- Templates -->
 
 <script type="text/html" id="issue">
-  <div class="issue {{ status }}">
+  <div class="issue {{ status }}" id="issue_{{id}}">
     <span class="status {{status}}">{{status}}</span>
     <span class="issue_number">#{{number}}</span>
     <span class="name">{{name}}</span>
@@ -97,13 +97,13 @@
         <span class="comments">{{commentsLength}}</span>
       {{/commentsLength}}
       
-      <small class="age">{{updated_at_json}}</small>
+      <small class="age">{{updated_at_in_words}} ago</small>
 
       {{#assignee}}
         <span class="assignee">{{name}}</span>
       {{/assignee}}
       
-      <%= link_to "×", "#", :method => :delete, :class => "delete", :confirm => "This can't be undone. Do you want to delete this issue?" %>
+      <a href="issues/{{id}}" data-method="delete" class="delete">×</a>
     </span>
   </div>
 </script>

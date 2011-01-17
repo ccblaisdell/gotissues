@@ -13,7 +13,8 @@ $(function(){
 
     // The DOM events specific to an item.
     events: {
-      "click .status" : "switchStatus"
+      "click .status" : "switchStatus",
+      "click .delete" : "delete"
     },
 
     // The TodoView listens for changes to its model, re-rendering. Since there's
@@ -40,6 +41,12 @@ $(function(){
     // Toggle the `"status"` of the model.
     switchStatus: function() {
       this.model.switchStatus();
+    },
+    
+    delete: function(e) {
+      e.preventDefault();
+      if (confirm("This can't be undone. Do you want to delete this issue?")) this.model.delete();
+      return false;
     },
 
     // Switch this view into `"editing"` mode, displaying the input field.
@@ -70,7 +77,7 @@ $(function(){
 
     // Remove this view from the DOM.
     remove: function() {
-      $(this.el).remove();
+      $(this.el).slideUp(250, function(){ $(this).remove(); });
     },
 
     // Remove the item, destroy the model.

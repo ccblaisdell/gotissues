@@ -63,8 +63,8 @@ $(function(){
 
     // Add a single todo item to the list by creating a view for it, and
     // appending its element to the `<ul>`.
-    addOne: function(todo) {
-      var view = new IssueView({model: todo});
+    addOne: function(issue) {
+      var view = new IssueView({model: issue});
       this.$("#issues").append(view.render().el);
     },
 
@@ -75,7 +75,6 @@ $(function(){
 
     // Generate the attributes for a new Todo item.
     newAttributes: function() {
-      console.log("newAttributes");
       return {
         name: this.name_input.val(),
         description: this.desc_input.val(),
@@ -97,7 +96,6 @@ $(function(){
     newIssue: function(e) {
       e.preventDefault();
       var i = Issues.create(this.newAttributes());
-      console.log("newIssue", i);
     },
 
     // Clear all done todo items, destroying their models.

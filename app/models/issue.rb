@@ -1,4 +1,6 @@
 class Issue < ActiveRecord::Base
+  include ActionView::Helpers::DateHelper
+  
   validates :name,  :presence => true
   validates :status,  :presence => true
   
@@ -39,16 +41,16 @@ class Issue < ActiveRecord::Base
     status = STATES[next_status]
   end
   
-  def created_at_json
-    self.created_at.to_s
+  def created_at_in_words
+    time_ago_in_words self.created_at
   end
-  def updated_at_json
-    self.updated_at.to_s
+  def updated_at_in_words
+    time_ago_in_words self.updated_at
   end
   
   def to_json
     super(
-      :methods => [:priority_name, :created_at_json, :updated_at_json],
+      :methods => [:priority_name, :created_at_in_words, :updated_at_in_words],
       :include => {
         :user => {:only => [:id, :name]},
         :assignee => {:only => [:id, :name]},

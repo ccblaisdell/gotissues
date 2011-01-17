@@ -13,7 +13,6 @@ $(function(){
 
     // Ensure that each issue has the required attributes
     initialize: function() {
-      
     },
 
     switchStatus: function() {
@@ -23,11 +22,13 @@ $(function(){
       var next_status = status_index + 1 >= this.states.length ? 1 : status_index + 1;
       this.set({status: this.states[next_status]});
       this.recent = true;
-      this.save();
+      this.save(null, {silent: true});
     },
-
-    assign: function() {
-      console.log("assign");
+    
+    delete: function() {
+      this.destroy();
+      this.view.remove();
+      return true;
     }
 
   });
