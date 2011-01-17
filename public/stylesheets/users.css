@@ -26,20 +26,15 @@
   border-radius: 4px;
   -moz-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.1);
+  right: 15px;
+  z-index: 10; }
 
-.change_assignee_list a {
-  display: block; }
+.change_assignee_list li {
+  cursor: pointer; }
 
-.change_assignee_list .arrow, .issues .change_assignee_list .arrow {
-  border: 10px solid #000;
-  border-width: 0 5px 8px;
-  border-color: transparent transparent #ddd;
-  width: 1px;
-  height: 1px;
-  position: absolute;
-  top: -18px;
-  right: 17px; }
+.change_assignee_list li:hover {
+  text-decoration: underline; }
 
 .not_assigned {
   color: #900; }

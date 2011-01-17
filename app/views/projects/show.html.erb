@@ -103,6 +103,16 @@
         <span class="assignee">{{name}}</span>
       {{/assignee}}
       
+      {{#noAssignee}}
+        <span class="assignee not_assigned">not assigned</span>
+      {{/noAssignee}}
+      
+      <ul class="users change_assignee_list" style="display: none;">
+        {{#users}}
+          <li data-id="{{id}}" class="assign_to">{{name}}</li>
+        {{/users}}
+      </ul>
+      
       <a href="issues/{{id}}" data-method="delete" class="delete">×</a>
     </span>
   </div>

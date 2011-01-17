@@ -11,7 +11,7 @@ class Issue < ActiveRecord::Base
   has_many :images, :as => :imageable
   acts_as_taggable
   
-  attr_accessible :name, :description, :status, :number, :priority
+  attr_accessible :name, :description, :status, :number, :priority, :assignee_id
   
   STATES = ['open', 'resolved', 'closed', 'reopened']
   PRIORITIES = ['low', 'normal', 'high', 'critical']

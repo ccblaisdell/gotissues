@@ -42,7 +42,8 @@
 
 .issues .metadata {
   display: block;
-  float: right; }
+  float: right;
+  position: relative; }
 
 .issues .issue_number {
   display: inline-block;

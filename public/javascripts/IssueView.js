@@ -14,7 +14,9 @@ $(function(){
     // The DOM events specific to an item.
     events: {
       "click .status" : "switchStatus",
-      "click .delete" : "delete"
+      "click .delete" : "delete",
+      "click .assignee" : "toggleAssignees",
+      "click .assign_to" : "assign"
     },
 
     // The TodoView listens for changes to its model, re-rendering. Since there's
@@ -33,7 +35,11 @@ $(function(){
         hasDescription: function(){
           return view.model.get("description") ? true : false;
         },
-        commentsLength: view.model.get("comments").length
+        commentsLength: view.model.get("comments").length,
+        noAssignee: function(){
+          return view.model.get("assignee") ? false : true;
+        },
+        users: USERS
       }) ));
       return this;
     },
@@ -83,6 +89,29 @@ $(function(){
     // Remove the item, destroy the model.
     clear: function() {
       this.model.clear();
+    },
+    
+    toggleAssignees: function(){
+      var $users = this.$(".change_assignee_list");
+      if ($users.is(":visible")) {
+        $users.hide();
+      } else {
+        $(".change_assignee_list").hide();
+        $users.show();
+      }
+    },
+    
+    assign: function(e){
+      $assignee = $(e.target);
+      this.model.save({
+        assignee_id: $assignee.attr("data-id"),
+        assignee: {
+          name: $assignee.html(),
+          id: $assignee.attr("data-id")
+        }
+      });
+      console.log(this.model.get("assignee_id"));
+      this.$(".change_assignee_list").hide();
     }
 
   });
