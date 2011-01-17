@@ -24,10 +24,22 @@ $(function(){
       });
     },
 
-    // Filter down the list to only todo items that are still not finished.
-    remaining: function() {
-      // return this.without.apply(this, this.done());
-      console.log("remaining");
+    open: function() {
+      return this.filter(function(issue){
+        return (issue.get("status") == "open");
+      });
+    },
+
+    resolved: function() {
+      return this.filter(function(issue){
+        return (issue.get("status") == "resolved");
+      });
+    },
+
+    reopened: function() {
+      return this.filter(function(issue){
+        return (issue.get("status") == "reopened");
+      });
     },
     
     // Filter all issues that are not closed

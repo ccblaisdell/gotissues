@@ -7,9 +7,9 @@
   <%= breadcrumbs_for home_crumb, projects_crumb, @project.name %>
   
   <p class="menu" id="menu">
-    <span class="buttonset">
+    <span class="buttongroup">
       Filter:
-      <%= link_to "closed", "#", :class => "filter_closed", :id => "filter_closed" %>
+      <%= link_to "open", "#",     :class => "filter_open",     :id => "filter_open" %><%= link_to "resolved", "#", :class => "filter_resolved", :id => "filter_resolved" %><%= link_to "closed", "#",   :class => "filter_closed",   :id => "filter_closed" %><%= link_to "reopened", "#", :class => "filter_reopened", :id => "filter_reopened" %>
     </span>
   </p>
   

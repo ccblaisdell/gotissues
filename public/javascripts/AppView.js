@@ -8,7 +8,6 @@ $(function(){
     // Instead of generating a new element, bind to the existing skeleton of
     // the App already present in the HTML.
     el: $("#issues_app"),
-    showingClosed: true,
     firstRender: true,
 
     // Our template for the line of statistics at the bottom of the app.
@@ -16,8 +15,11 @@ $(function(){
     
     // Events
     events: {
-      "submit #new_issue": "newIssue",
-      "click #filter_closed": "toggleClosed"
+      "submit #new_issue"     : "newIssue",
+      "click #filter_open"    : "toggleOpen",
+      "click #filter_reopened": "toggleReopened",
+      "click #filter_resolved": "toggleResolved",
+      "click #filter_closed"  : "toggleClosed"
     },
 
     // At initialization we bind to the relevant events on the `Todos`
@@ -33,14 +35,10 @@ $(function(){
       this.tags_input = this.$("#issue_tag_list");
       this.assignee_select = this.$("#issue_assignee_id");
       this.priority_select = this.$("#issue_priority");
-      this.filter_closed_button = this.$("#filter_closed");
       
       Issues.bind('add',     this.addOne);
       Issues.bind('refresh', this.addAll);
       Issues.bind('all',     this.render);
-      
-      // Issues.fetch();
-      console.log("initialize app");
     },
 
     // Re-rendering the App just means refreshing the statistics -- the rest
@@ -56,7 +54,9 @@ $(function(){
       // start with all closed issues hidden
       // this.hideClosed(); // This will hide closed on every re-render
       if (this.firstRender) {
+        // this.toggleClosed({target: "#filter_closed", preventDefault: function(){return false;}});
         this.hideClosed();
+        this.$("#filter_open, #filter_resolved, #filter_reopened").addClass("selected");
         this.firstRender = false;
       }
     },
@@ -120,19 +120,54 @@ $(function(){
     
     toggleClosed: function(e) {
       e.preventDefault();
-      if (this.showingClosed) {
+      $button = $(e.target);
+      if ($button.hasClass("selected")) {
+        $button.removeClass("selected")
         this.hideClosed();
       } else {
-        this.showClosed();
+        $button.addClass("selected");
+        return _.each(Issues.oldClosed(), function(issue){issue.view.show();})
       }
     },
     hideClosed: function(){
       this.showingClosed = false;
       return _.each(Issues.oldClosed(), function(issue){issue.view.hide();});
     },
-    showClosed: function() {
-      this.showingClosed = true;
-      return _.each(Issues.oldClosed(), function(issue){issue.view.show();})
+        
+    toggleOpen: function(e) {
+      e.preventDefault();
+      $button = $(e.target);
+      if ($button.hasClass("selected")) {
+        $button.removeClass("selected")
+        return _.each(Issues.open(), function(issue){issue.view.hide();})
+      } else {
+        $button.addClass("selected");
+        return _.each(Issues.open(), function(issue){issue.view.show();})
+      }
+    },
+            
+    toggleResolved: function(e) {
+      e.preventDefault();
+      $button = $(e.target);
+      if ($button.hasClass("selected")) {
+        $button.removeClass("selected")
+        return _.each(Issues.resolved(), function(issue){issue.view.hide();})
+      } else {
+        $button.addClass("selected");
+        return _.each(Issues.resolved(), function(issue){issue.view.show();})
+      }
+    },
+    
+    toggleReopened: function(e) {
+      e.preventDefault();
+      $button = $(e.target);
+      if ($button.hasClass("selected")) {
+        $button.removeClass("selected")
+        return _.each(Issues.reopened(), function(issue){issue.view.hide();})
+      } else {
+        $button.addClass("selected");
+        return _.each(Issues.reopened(), function(issue){issue.view.show();})
+      }
     }
 
   });
