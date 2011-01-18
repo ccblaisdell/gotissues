@@ -8,6 +8,11 @@
   
   <p class="menu" id="menu">
     <span class="buttongroup">
+      Sort by:
+      <%= link_to "status", "#", :id => "sort_by_status" %>
+    </span>
+    
+    <span class="buttongroup">
       Filter:
       <%= link_to "open", "#",     :class => "filter_open",     :id => "filter_open" %><%= link_to "resolved", "#", :class => "filter_resolved", :id => "filter_resolved" %><%= link_to "closed", "#",   :class => "filter_closed",   :id => "filter_closed" %><%= link_to "reopened", "#", :class => "filter_reopened", :id => "filter_reopened" %>
     </span>
@@ -20,13 +25,16 @@
     <h2>new issue</h2>
     <%= f.text_field :name, :placeholder => "name" %>
     <%= f.text_area :description, :placeholder => "description", :rows => 1 %>
-    <%= f.text_field :tag_list, :placeholder => "tags, comma_separated" %>
+    <!-- <%= f.text_field :tag_list, :placeholder => "tags, comma_separated" %> -->
     <%= select_tag "issue[assignee_id]", options_for_select([["no one",""]] + User.all.collect { |user| [user.name, user.id] }) %>
     <%= select_tag "issue[priority]", options_for_select(Issue.priorities.collect { |i| [i, Issue.priorities.index(i)] }, :selected => 1) %>
 
     <%= f.submit "Add Issue" %>
   <% end %>
-</div>
+</div><!-- rendering an issue list -->
+
+<div id="issue" class="issue">
+</div><!-- for rendering a single issue -->
 
 
 
@@ -38,33 +46,28 @@
 <% content_for :head do %>
   <script>
     var PROJECT_ID = <%= @project.id %>;
+    var PROJECT_SLUG = "<%= @project.slug %>";
     var CURRENT_USER_ID = <%= current_user.id %>;
+    var ISSUES = <%= @project.issues.order("created_at ASC").to_json(
+        :methods => [:priority_name, :created_at_in_words, :updated_at_in_words],
+        :include => {
+          :user => {:only => [:id, :name]},
+          :assignee => {:only => [:id, :name]},
+          :comments => {:only => [:id]}
+        }
+    ).html_safe %>;
   </script>
-  <%= javascript_include_tag "Issue", "IssueList", "IssueView", "AppView", "gotIssues" %>
-  <script>
-    $(function(){
-      
-      Issues.refresh(<%= @project.issues.order("created_at ASC").to_json(
-          :methods => [:priority_name, :created_at_in_words, :updated_at_in_words],
-          :include => {
-            :user => {:only => [:id, :name]},
-            :assignee => {:only => [:id, :name]},
-            :comments => {:only => [:id]}
-          }
-      ).html_safe %>);
-      
-    })
-  </script>
+  <%= javascript_include_tag "models/Issue", "views/IssueList", "views/IssueView", "views/IssuesView", "views/IssueShow", "controllers/IssuesController", "gotIssues" %>
 <% end %>
 
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= @project.name %>
-  <%= @project.slug %>
-  <%= @project.description %>
-  <%= @project.open %>
-  <%= @project.owner.name if @project.owner %>
+  name: <%= @project.name %>
+  | slug: <%= @project.slug %>
+  | desc: <%= @project.description %>
+  | open?:<%= @project.open %>
+  | owner: <%= @project.owner.name if @project.owner %>
 </p>
 
 
@@ -79,11 +82,12 @@
 
 <!-- Templates -->
 
-<script type="text/html" id="issue">
+<!-- Issue/_item -->
+<script type="text/html" id="issue_item">
   <div class="issue {{ status }}" id="issue_{{id}}">
     <span class="status {{status}}">{{status}}</span>
     <span class="issue_number">#{{number}}</span>
-    <span class="name">{{name}}</span>
+    <a href="{{project_slug}}#/issues/{{id}}" class="name">{{name}}</a>
     <small>{{#user}}{{name}}{{/user}}</small>
     <span class="metadata">
 
@@ -116,4 +120,62 @@
       <a href="issues/{{id}}" data-method="delete" class="delete">×</a>
     </span>
   </div>
+</script>
+
+
+<!-- Issues/Show -->
+<script type="text/html" id="issue_show">
+  <h1>#{{number}} {{name}}</h1>
+  <p>render breadcrumbs</p>
+
+  <div class="overview clearfix">
+    <span class="status {{status}}">{{status}}</span>
+    
+    {{#assignee}}
+      <span class="assignee">{{name}}</span>
+    {{/assignee}}
+    
+    {{#noAssignee}}
+      <span class="assignee not_assigned">not assigned</span>
+    {{/noAssignee}}
+    
+    <small>
+      Created by {{#user}}{{name}} {{/user}}
+      {{created_at_in_words}} ago.
+      Last updated {{updated_at_in_words}} ago.
+    </small>
+  </div>
+  
+  <div class="description">{{description}}<span class="arrow"></span></div>
+  
+  images
+  
+  image form
+  
+  subnav
+
+  <h2>Comments</h2>
+
+  <ul class="comments">
+    {{#comments}}
+      {{>comment}}
+    {{/comments}}
+  </ul>
+
+  comment_form
+
+
+  edit | back
+</script>
+
+<script class="partial" type="text/html" id="comment">
+  <li id="comment_{{id}}">
+    images
+    <div class="actions">
+      <a href="/comments/{{id}}/edit">edit</a>
+      <a href="/comments/{{id}}" data-method="delete" class="delete">×</a>
+    </div>
+    <small>At {{created_at}}, {{#user}}{{name}} {{/user}} said</small>
+    {{body}}
+  </li>
 </script>

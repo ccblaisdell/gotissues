@@ -25,7 +25,7 @@ class IssuesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @issue }
-      format.json {render :json => @issue.to_json }
+      format.json { render :json => @issue.to_json }
     end
   end
 

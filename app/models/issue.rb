@@ -54,7 +54,11 @@ class Issue < ActiveRecord::Base
       :include => {
         :user => {:only => [:id, :name]},
         :assignee => {:only => [:id, :name]},
-        :comments => {:only => [:id]}
+        :comments => {
+          :include => {
+            :user => {:only => [:id, :name]}
+          }
+        }
       }
     )
   end
