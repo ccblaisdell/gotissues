@@ -37,7 +37,7 @@ module IssuesHelper
     inext = nil
     number = issue.number + 1
     if (issue.number > 0)
-      until (inext or number == project.issues.last.number)
+      until (inext or number > project.issues.last.number)
         inext = project.issues.active.by_number(number).first
         number += 1
       end
